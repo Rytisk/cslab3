@@ -1,1 +1,14 @@
 C:\Users\Acer\Lab3\JobMatch\JobMatch\bin\Debug\JobMatch.exe.config
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\JobMatch.exe.config
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\JobMatch.exe
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\JobMatch.pdb
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.dll
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.xml
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csprojResolveAssemblyReference.cache
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.Form1.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.Properties.Resources.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csproj.GenerateResource.Cache
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.exe
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.pdb
