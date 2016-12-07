@@ -16,3 +16,5 @@ C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterJobSeeker
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterUser.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelector.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.SelectorForm.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerSelector.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerMenu.resources

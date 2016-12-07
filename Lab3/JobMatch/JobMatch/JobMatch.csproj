@@ -72,11 +72,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBHandler.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployerRates.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployerSelector.Designer.cs">
+      <DependentUpon>EmployerSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="FindJobDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -97,6 +104,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindJobModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSeekerMenu.Designer.cs">
+      <DependentUpon>JobSeekerMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -148,6 +161,12 @@
     <Compile Include="Skill.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EmployerSelector.resx">
+      <DependentUpon>EmployerSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerMenu.resx">
+      <DependentUpon>JobSeekerMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

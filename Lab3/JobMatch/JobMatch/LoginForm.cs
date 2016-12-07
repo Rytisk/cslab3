@@ -33,6 +33,10 @@ namespace JobMatch
             if (radioButton1.Checked)
             {
                 type = Type.JobSeeker;
+                Hide();
+                JobSeekerMenu JSMenu = new JobSeekerMenu();
+                JSMenu.ShowDialog(this);
+                Show();
             }
             else if (radioButton2.Checked)
             {
@@ -42,15 +46,7 @@ namespace JobMatch
             {
                 MessageBox.Show("Please choose a type of login");
             }
-            if(type != Type.None)
-            {
-                Hide();
-                SelectorForm slform = new SelectorForm();
-                slform.ShowDialog(this);
-                Show();
-            }
-
-
+    
         }
 
         private void label3_Click(object sender, EventArgs e)
