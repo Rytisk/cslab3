@@ -1,6 +1,6 @@
 ﻿namespace JobMatch
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,6 +49,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(86, 96);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 1;
             // 
@@ -112,8 +113,9 @@
             this.label3.Size = new System.Drawing.Size(144, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Don\'t have an account?";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // Form1
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,7 +128,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

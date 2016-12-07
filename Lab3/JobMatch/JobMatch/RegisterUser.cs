@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace JobMatch
 {
-    public partial class RegisterJobSeeker : Form
+    public partial class RegisterUser : Form
     {
-        public RegisterJobSeeker()
+        public RegisterUser()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Register all data => Save input to the database;
         }
     }
 }

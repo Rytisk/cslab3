@@ -7,8 +7,12 @@ C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.SqlServer.
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.xml
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csprojResolveAssemblyReference.cache
-C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.Form1.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.Properties.Resources.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csproj.GenerateResource.Cache
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.exe
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.pdb
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.LoginForm.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterJobSeeker.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterUser.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelector.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.SelectorForm.resources

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Employer">
       <EntityTypeMapping TypeName="FindJobDBModel.Employer">
         <MappingFragment StoreEntitySet="Employer">
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="LoginName" ColumnName="LoginName" />
@@ -37,6 +38,7 @@
     <EntitySetMapping Name="JobSeeker">
       <EntityTypeMapping TypeName="FindJobDBModel.JobSeeker">
         <MappingFragment StoreEntitySet="JobSeeker">
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="LoginName" ColumnName="LoginName" />
           <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />

@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace JobMatch
 {
-    public partial class RegisterJobSeeker : Form
+    public partial class SelectorForm : Form
     {
-        public RegisterJobSeeker()
+        public SelectorForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SelectorForm_Load(object sender, EventArgs e)
         {
-            //Register all data => Save input to the database;
+            var myControl = new JobSeekerSelector();
+            panel1.Controls.Add(myControl);
         }
     }
 }

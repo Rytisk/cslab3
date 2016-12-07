@@ -5,11 +5,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="LoginName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="EmployerRates" Relationship="Self.FK_EmployerRates_Employer" FromRole="Employer" ToRole="EmployerRates" />
     <NavigationProperty Name="Job" Relationship="Self.FK_Job_Employer" FromRole="Employer" ToRole="Job" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="EmployerRates">
     <Key>
@@ -44,13 +45,14 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LoginPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoginPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ContactData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="JobSeekerRates" Relationship="Self.FK_JobSeekerRates_JobSeeker" FromRole="JobSeeker" ToRole="JobSeekerRates" />
     <NavigationProperty Name="Profile" Relationship="Self.FK_Profile_JobSeeker" FromRole="JobSeeker" ToRole="Profile" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="JobSeekerRates">
     <Key>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace JobMatch
 {
-    public partial class RegisterJobSeeker : Form
+    public partial class JobSeekerSelector : UserControl
     {
-        public RegisterJobSeeker()
+        public JobSeekerSelector()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Register all data => Save input to the database;
         }
     }
 }
