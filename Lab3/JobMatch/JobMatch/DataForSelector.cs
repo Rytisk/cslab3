@@ -9,10 +9,6 @@ namespace JobMatch
         public string Education { get; set; }
         public string Position { get; set; }
         public string ShortJobDescription { get; set; }
-        public IEnumerable Skills
-        {
-            get;
-            set;
-        }
+        public int? RequiredSkillId { get; set; }
     }
 }
