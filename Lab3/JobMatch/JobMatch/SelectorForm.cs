@@ -15,12 +15,12 @@ namespace JobMatch
     {
         JobSeekerSelector myControl;
         private int employerIndex;
-        List<Employer> employers;
+        List<DataForSelector> employers;
 
         public SelectorForm()
         {
             DBHandler db = new DBHandler();
-            employers = db.GetEmployers();
+            employers = db.GetEmployer();
             InitializeComponent();
         }
 
@@ -34,11 +34,15 @@ namespace JobMatch
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Employer emp;
+            DataForSelector emp;
             if(employers.Count > employerIndex)
             {
                 emp = employers.ElementAt(employerIndex++);
-                myControl.NameOfCompany = emp.Name;
+                myControl.NameOfCompany = emp.CompanyName;
+                myControl.Education = emp.Education;
+                myControl.JobPosition = emp.Position;
+                myControl.ShortJobDescription = emp.ShortJobDescription;
+                myControl.AditionalRequirements = emp.AdditionalRequirements;
             }
             else
             {
