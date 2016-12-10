@@ -86,11 +86,6 @@
     <Compile Include="EmployerSelector.Designer.cs">
       <DependentUpon>EmployerSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="FindJobDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FindJobModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,17 +187,6 @@
     <EmbeddedResource Include="SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="FindJobDBDataSet.xsc">
-      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FindJobDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FindJobDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FindJobDBDataSet.xss">
-      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
-    </None>
     <EntityDeploy Include="FindJobModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FindJobModel.Designer.cs</LastGenOutput>

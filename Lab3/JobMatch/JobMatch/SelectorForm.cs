@@ -16,10 +16,11 @@ namespace JobMatch
         JobSeekerSelector myControl;
         private int employerIndex;
         List<DataForSelector> employers;
+        DBHandler db;
 
         public SelectorForm()
         {
-            DBHandler db = new DBHandler();
+            db = new DBHandler();
             employers = db.GetEmployer();
             InitializeComponent();
         }
@@ -43,6 +44,18 @@ namespace JobMatch
                 myControl.JobPosition = emp.Position;
                 myControl.ShortJobDescription = emp.ShortJobDescription;
                 myControl.AditionalRequirements = emp.AdditionalRequirements;
+
+                var reqSkills = db.GetRequiredSkills(emp.RequiredSkillId);
+
+                foreach(RequiredSkill skill in reqSkills)
+                {
+                    ListViewItem listItems = new ListViewItem(skill.Skill.ToString());
+                    listItems.SubItems.Add(skill.Experience.ToString());
+                    myControl.RequiredSkills.Items.Add(listItems);
+                }
+                
+                
+                
             }
             else
             {
