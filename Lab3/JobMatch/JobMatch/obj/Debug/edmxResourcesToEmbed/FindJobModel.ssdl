@@ -21,6 +21,22 @@
     <Property Name="Job_Id" Type="int" Nullable="false" />
     <Property Name="Rate" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="HasRequiredSkills">
+    <Key>
+      <PropertyRef Name="Job_id" />
+      <PropertyRef Name="RequiredSkill_id" />
+    </Key>
+    <Property Name="Job_id" Type="int" Nullable="false" />
+    <Property Name="RequiredSkill_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HasSkills">
+    <Key>
+      <PropertyRef Name="Profile_id" />
+      <PropertyRef Name="Skill_id" />
+    </Key>
+    <Property Name="Profile_id" Type="int" Nullable="false" />
+    <Property Name="Skill_id" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Job">
     <Key>
       <PropertyRef Name="Id" />
@@ -31,7 +47,6 @@
     <Property Name="JobDescription" Type="nvarchar" MaxLength="50" />
     <Property Name="EducationRequirements" Type="nvarchar" MaxLength="50" />
     <Property Name="AditionalRequirements" Type="nvarchar" MaxLength="50" />
-    <Property Name="RequiredSkill_Id" Type="int" />
   </EntityType>
   <EntityType Name="JobSeeker">
     <Key>
@@ -62,7 +77,6 @@
     <Property Name="Education" Type="nvarchar" MaxLength="50" />
     <Property Name="ShortDescription" Type="nvarchar" MaxLength="50" />
     <Property Name="WorkExperience" Type="nvarchar" MaxLength="50" />
-    <Property Name="Skill_Id" Type="int" />
   </EntityType>
   <EntityType Name="RequiredSkill">
     <Key>
@@ -104,6 +118,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_HasRequiredSkills_Job">
+    <End Role="Job" Type="Self.Job" Multiplicity="1" />
+    <End Role="HasRequiredSkills" Type="Self.HasRequiredSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HasRequiredSkills">
+        <PropertyRef Name="Job_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HasRequiredSkills_RequiredSkill">
+    <End Role="RequiredSkill" Type="Self.RequiredSkill" Multiplicity="1" />
+    <End Role="HasRequiredSkills" Type="Self.HasRequiredSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequiredSkill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HasRequiredSkills">
+        <PropertyRef Name="RequiredSkill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HasSkills_Profile">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="HasSkills" Type="Self.HasSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="JobSeeker_Id" />
+      </Principal>
+      <Dependent Role="HasSkills">
+        <PropertyRef Name="Profile_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HasSkills_Skill">
+    <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+    <End Role="HasSkills" Type="Self.HasSkills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HasSkills">
+        <PropertyRef Name="Skill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Job_Employer">
     <End Role="Employer" Type="Self.Employer" Multiplicity="0..1" />
     <End Role="Job" Type="Self.Job" Multiplicity="*" />
@@ -113,18 +175,6 @@
       </Principal>
       <Dependent Role="Job">
         <PropertyRef Name="Employer_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Job_RequiredSkill">
-    <End Role="RequiredSkill" Type="Self.RequiredSkill" Multiplicity="0..1" />
-    <End Role="Job" Type="Self.Job" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RequiredSkill">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Job">
-        <PropertyRef Name="RequiredSkill_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -164,21 +214,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Profile_Skill">
-    <End Role="Skill" Type="Self.Skill" Multiplicity="0..1" />
-    <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Skill">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Profile">
-        <PropertyRef Name="Skill_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="FindJobDBModelStoreContainer">
     <EntitySet Name="Employer" EntityType="Self.Employer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployerRates" EntityType="Self.EmployerRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HasRequiredSkills" EntityType="Self.HasRequiredSkills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HasSkills" EntityType="Self.HasSkills" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobSeeker" EntityType="Self.JobSeeker" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobSeekerRates" EntityType="Self.JobSeekerRates" Schema="dbo" store:Type="Tables" />
@@ -193,12 +233,24 @@
       <End Role="Profile" EntitySet="Profile" />
       <End Role="EmployerRates" EntitySet="EmployerRates" />
     </AssociationSet>
+    <AssociationSet Name="FK_HasRequiredSkills_Job" Association="Self.FK_HasRequiredSkills_Job">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="HasRequiredSkills" EntitySet="HasRequiredSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HasRequiredSkills_RequiredSkill" Association="Self.FK_HasRequiredSkills_RequiredSkill">
+      <End Role="RequiredSkill" EntitySet="RequiredSkill" />
+      <End Role="HasRequiredSkills" EntitySet="HasRequiredSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HasSkills_Profile" Association="Self.FK_HasSkills_Profile">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="HasSkills" EntitySet="HasSkills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HasSkills_Skill" Association="Self.FK_HasSkills_Skill">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="HasSkills" EntitySet="HasSkills" />
+    </AssociationSet>
     <AssociationSet Name="FK_Job_Employer" Association="Self.FK_Job_Employer">
       <End Role="Employer" EntitySet="Employer" />
-      <End Role="Job" EntitySet="Job" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Job_RequiredSkill" Association="Self.FK_Job_RequiredSkill">
-      <End Role="RequiredSkill" EntitySet="RequiredSkill" />
       <End Role="Job" EntitySet="Job" />
     </AssociationSet>
     <AssociationSet Name="FK_JobSeekerRates_Job" Association="Self.FK_JobSeekerRates_Job">
@@ -211,10 +263,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_Profile_JobSeeker" Association="Self.FK_Profile_JobSeeker">
       <End Role="JobSeeker" EntitySet="JobSeeker" />
-      <End Role="Profile" EntitySet="Profile" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Profile_Skill" Association="Self.FK_Profile_Skill">
-      <End Role="Skill" EntitySet="Skill" />
       <End Role="Profile" EntitySet="Profile" />
     </AssociationSet>
   </EntityContainer>
