@@ -118,6 +118,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FindJobModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="JobSeeker\RatedJobs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSeeker\RatedJobs.Designer.cs">
+      <DependentUpon>RatedJobs.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeeker\JobSeekerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employer\MyJobsForm.resx">
       <DependentUpon>MyJobsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeeker\RatedJobs.resx">
+      <DependentUpon>RatedJobs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeeker\JobSeekerMenu.resx">
       <DependentUpon>JobSeekerMenu.cs</DependentUpon>

@@ -37,5 +37,13 @@ namespace JobMatch
             JBReg.ShowDialog(this);
             Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            RatedJobs ratedJobsForm = new RatedJobs();
+            ratedJobsForm.ShowDialog(this);
+            Show();
+        }
     }
 }
