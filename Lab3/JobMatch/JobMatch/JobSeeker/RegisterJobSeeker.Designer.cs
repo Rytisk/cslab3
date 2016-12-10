@@ -28,93 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.fname_box = new System.Windows.Forms.TextBox();
+            this.lname_box = new System.Windows.Forms.TextBox();
+            this.short_description_data = new System.Windows.Forms.TextBox();
+            this.skills_checklist = new System.Windows.Forms.CheckedListBox();
+            this.education_box = new System.Windows.Forms.TextBox();
+            this.work_experience_box = new System.Windows.Forms.TextBox();
+            this.update_profile_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.contact_data_box = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox2
+            // fname_box
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.fname_box.Location = new System.Drawing.Point(113, 7);
+            this.fname_box.Name = "fname_box";
+            this.fname_box.Size = new System.Drawing.Size(161, 20);
+            this.fname_box.TabIndex = 1;
             // 
-            // textBox3
+            // lname_box
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 44);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.lname_box.Location = new System.Drawing.Point(113, 44);
+            this.lname_box.Name = "lname_box";
+            this.lname_box.Size = new System.Drawing.Size(161, 20);
+            this.lname_box.TabIndex = 2;
             // 
-            // textBox4
+            // short_description_data
             // 
-            this.textBox4.Location = new System.Drawing.Point(22, 204);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(329, 97);
-            this.textBox4.TabIndex = 3;
+            this.short_description_data.Location = new System.Drawing.Point(22, 204);
+            this.short_description_data.Multiline = true;
+            this.short_description_data.Name = "short_description_data";
+            this.short_description_data.Size = new System.Drawing.Size(329, 97);
+            this.short_description_data.TabIndex = 3;
             // 
-            // checkedListBox1
+            // skills_checklist
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "C#",
+            this.skills_checklist.FormattingEnabled = true;
+            this.skills_checklist.Items.AddRange(new object[] {
+            "C# and .NET",
             "Java",
             "SQL",
             "C++",
             "HTML",
             "JavaScript",
-            "CSS"});
-            this.checkedListBox1.Location = new System.Drawing.Point(22, 335);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 109);
-            this.checkedListBox1.TabIndex = 4;
+            "CSS",
+            "C",
+            "Agile",
+            "ASP.Net"});
+            this.skills_checklist.Location = new System.Drawing.Point(22, 335);
+            this.skills_checklist.Name = "skills_checklist";
+            this.skills_checklist.Size = new System.Drawing.Size(252, 109);
+            this.skills_checklist.TabIndex = 4;
             // 
-            // textBox5
+            // education_box
             // 
-            this.textBox5.Location = new System.Drawing.Point(209, 364);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(142, 20);
-            this.textBox5.TabIndex = 5;
+            this.education_box.Location = new System.Drawing.Point(392, 99);
+            this.education_box.Multiline = true;
+            this.education_box.Name = "education_box";
+            this.education_box.Size = new System.Drawing.Size(204, 73);
+            this.education_box.TabIndex = 5;
             // 
-            // textBox6
+            // work_experience_box
             // 
-            this.textBox6.Location = new System.Drawing.Point(209, 424);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(142, 20);
-            this.textBox6.TabIndex = 6;
+            this.work_experience_box.Location = new System.Drawing.Point(392, 204);
+            this.work_experience_box.Multiline = true;
+            this.work_experience_box.Name = "work_experience_box";
+            this.work_experience_box.Size = new System.Drawing.Size(204, 97);
+            this.work_experience_box.TabIndex = 6;
             // 
-            // button1
+            // update_profile_btn
             // 
-            this.button1.Location = new System.Drawing.Point(138, 493);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.update_profile_btn.Location = new System.Drawing.Point(245, 480);
+            this.update_profile_btn.Name = "update_profile_btn";
+            this.update_profile_btn.Size = new System.Drawing.Size(123, 23);
+            this.update_profile_btn.TabIndex = 7;
+            this.update_profile_btn.Text = "Update Profile";
+            this.update_profile_btn.UseVisualStyleBackColor = true;
+            this.update_profile_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 335);
+            this.label1.Location = new System.Drawing.Point(389, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 8;
@@ -123,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(206, 397);
+            this.label2.Location = new System.Drawing.Point(389, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 9;
@@ -165,79 +166,44 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "First Name";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(113, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 15;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(113, 118);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 16;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(113, 154);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 17;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(22, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Phone Number";
+            this.label5.Text = "Contact Data";
             // 
-            // label8
+            // contact_data_box
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 121);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "E-mail";
+            this.contact_data_box.Location = new System.Drawing.Point(22, 99);
+            this.contact_data_box.Multiline = true;
+            this.contact_data_box.Name = "contact_data_box";
+            this.contact_data_box.Size = new System.Drawing.Size(329, 73);
+            this.contact_data_box.TabIndex = 19;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 157);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Address";
-            // 
-            // Form2
+            // RegisterJobSeeker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 528);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(608, 535);
+            this.Controls.Add(this.contact_data_box);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Name = "Form2";
+            this.Controls.Add(this.update_profile_btn);
+            this.Controls.Add(this.work_experience_box);
+            this.Controls.Add(this.education_box);
+            this.Controls.Add(this.skills_checklist);
+            this.Controls.Add(this.short_description_data);
+            this.Controls.Add(this.lname_box);
+            this.Controls.Add(this.fname_box);
+            this.Name = "RegisterJobSeeker";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,24 +211,20 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox fname_box;
+        private System.Windows.Forms.TextBox lname_box;
+        private System.Windows.Forms.TextBox short_description_data;
+        private System.Windows.Forms.CheckedListBox skills_checklist;
+        private System.Windows.Forms.TextBox education_box;
+        private System.Windows.Forms.TextBox work_experience_box;
+        private System.Windows.Forms.Button update_profile_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox contact_data_box;
     }
 }

@@ -91,6 +91,18 @@
     <Compile Include="Employer\EmployerSelectorView.Designer.cs">
       <DependentUpon>EmployerSelectorView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employer\JobRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employer\JobRegistration.Designer.cs">
+      <DependentUpon>JobRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\MyJobsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employer\MyJobsForm.Designer.cs">
+      <DependentUpon>MyJobsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindJobModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +117,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FindJobModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeeker\RatedJobs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobSeeker\RatedJobs.Designer.cs">
+      <DependentUpon>RatedJobs.cs</DependentUpon>
     </Compile>
     <Compile Include="JobSeeker\JobSeekerMenu.cs">
       <SubType>Form</SubType>
@@ -168,6 +186,15 @@
     <EmbeddedResource Include="Employer\EmployerSelectorView.resx">
       <DependentUpon>EmployerSelectorView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employer\JobRegistration.resx">
+      <DependentUpon>JobRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employer\MyJobsForm.resx">
+      <DependentUpon>MyJobsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeeker\RatedJobs.resx">
+      <DependentUpon>RatedJobs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JobSeeker\JobSeekerMenu.resx">
       <DependentUpon>JobSeekerMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +254,9 @@
       <DependentUpon>FindJobModel.edmx</DependentUpon>
       <LastGenOutput>FindJobModel.cs</LastGenOutput>
     </Content>
+    <None Include="ToDo">
+      <SubType>Form</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
