@@ -75,35 +75,36 @@
             this.short_description.Multiline = true;
             this.short_description.Name = "short_description";
             this.short_description.ReadOnly = true;
-            this.short_description.Size = new System.Drawing.Size(233, 127);
+            this.short_description.Size = new System.Drawing.Size(291, 127);
             this.short_description.TabIndex = 3;
             // 
             // company_name
             // 
-            this.company_name.Location = new System.Drawing.Point(143, 18);
+            this.company_name.Location = new System.Drawing.Point(143, 12);
             this.company_name.Multiline = true;
             this.company_name.Name = "company_name";
             this.company_name.ReadOnly = true;
-            this.company_name.Size = new System.Drawing.Size(126, 22);
+            this.company_name.Size = new System.Drawing.Size(184, 22);
             this.company_name.TabIndex = 4;
             // 
             // job_position
             // 
-            this.job_position.Location = new System.Drawing.Point(143, 61);
+            this.job_position.Location = new System.Drawing.Point(143, 55);
             this.job_position.Multiline = true;
             this.job_position.Name = "job_position";
             this.job_position.ReadOnly = true;
-            this.job_position.Size = new System.Drawing.Size(126, 22);
+            this.job_position.Size = new System.Drawing.Size(184, 22);
             this.job_position.TabIndex = 5;
             // 
             // required_skills
             // 
+            this.required_skills.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.required_skills.Location = new System.Drawing.Point(36, 287);
             this.required_skills.Name = "required_skills";
-            this.required_skills.Size = new System.Drawing.Size(121, 97);
+            this.required_skills.Size = new System.Drawing.Size(291, 97);
             this.required_skills.TabIndex = 6;
             this.required_skills.UseCompatibleStateImageBehavior = false;
-            this.required_skills.View = System.Windows.Forms.View.List;
+            this.required_skills.View = System.Windows.Forms.View.Details;
             // 
             // label4
             // 
@@ -125,7 +126,7 @@
             // 
             // education_place
             // 
-            this.education_place.Location = new System.Drawing.Point(103, 410);
+            this.education_place.Location = new System.Drawing.Point(103, 403);
             this.education_place.Name = "education_place";
             this.education_place.ReadOnly = true;
             this.education_place.Size = new System.Drawing.Size(224, 20);
@@ -149,7 +150,7 @@
             this.aditional_requirements.Size = new System.Drawing.Size(291, 127);
             this.aditional_requirements.TabIndex = 11;
             // 
-            // JobSeekerSelector
+            // JobSeekerSelectorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,7 +166,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "JobSeekerSelector";
+            this.Name = "JobSeekerSelectorView";
             this.Size = new System.Drawing.Size(555, 610);
             this.ResumeLayout(false);
             this.PerformLayout();

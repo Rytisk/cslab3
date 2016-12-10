@@ -38,3 +38,4 @@ C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csproj.
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerMenu.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerSelectorView.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelectorView.resources
+C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.MyJobsForm.resources

@@ -91,6 +91,18 @@
     <Compile Include="Employer\EmployerSelectorView.Designer.cs">
       <DependentUpon>EmployerSelectorView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employer\JobRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employer\JobRegistration.Designer.cs">
+      <DependentUpon>JobRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\MyJobsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employer\MyJobsForm.Designer.cs">
+      <DependentUpon>MyJobsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindJobModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -167,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employer\EmployerSelectorView.resx">
       <DependentUpon>EmployerSelectorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employer\MyJobsForm.resx">
+      <DependentUpon>MyJobsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeeker\JobSeekerMenu.resx">
       <DependentUpon>JobSeekerMenu.cs</DependentUpon>
