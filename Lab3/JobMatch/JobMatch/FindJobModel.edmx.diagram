@@ -16,11 +16,11 @@
         <AssociationConnector Association="FindJobDBModel.FK_EmployerRates_Employer" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_Job_Employer" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_EmployerRates_Profile" ManuallyRouted="false" />
-        <AssociationConnector Association="FindJobDBModel.FK_Job_RequiredSkill" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_JobSeekerRates_Job" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_JobSeekerRates_JobSeeker" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_Profile_JobSeeker" ManuallyRouted="false" />
-        <AssociationConnector Association="FindJobDBModel.FK_Profile_Skill" ManuallyRouted="false" />
+        <AssociationConnector Association="FindJobDBModel.HasRequiredSkills" />
+        <AssociationConnector Association="FindJobDBModel.HasSkills" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

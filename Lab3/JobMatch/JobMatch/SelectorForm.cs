@@ -15,12 +15,18 @@ namespace JobMatch
     {
         JobSeekerSelector myControl;
         private int employerIndex;
+<<<<<<< HEAD
         List<EmployerDataSelector> employers;
         DBHandler db;
         Type _userType;
+=======
+        List<DataForSelector> employers;
+        DBHandler db;
+>>>>>>> e1abfe853d1c44d4645dcf8fc50584882ee4591f
 
         public SelectorForm(Type userType)
         {
+<<<<<<< HEAD
             _userType = userType;
             if(userType == Type.JobSeeker)
             {
@@ -34,6 +40,10 @@ namespace JobMatch
             }
            // db = new DBHandler();
          //   employers = db.GetEmployer();
+=======
+            db = new DBHandler();
+            employers = db.GetEmployer();
+>>>>>>> e1abfe853d1c44d4645dcf8fc50584882ee4591f
             InitializeComponent();
         }
 
@@ -49,6 +59,7 @@ namespace JobMatch
             EmployerDataSelector emp;
             if(employers.Count > employerIndex)
             {
+<<<<<<< HEAD
                 //BAD CODE
                 //emp = employers.ElementAt(employerIndex++);
                 //myControl.NameOfCompany = emp.CompanyName;
@@ -68,6 +79,26 @@ namespace JobMatch
 
 
 
+=======
+                emp = employers.ElementAt(employerIndex++);
+                myControl.NameOfCompany = emp.CompanyName;
+                myControl.Education = emp.Education;
+                myControl.JobPosition = emp.Position;
+                myControl.ShortJobDescription = emp.ShortJobDescription;
+                myControl.AditionalRequirements = emp.AdditionalRequirements;
+
+                var reqSkills = db.GetRequiredSkills(emp.RequiredSkillId);
+
+                foreach(RequiredSkill skill in reqSkills)
+                {
+                    ListViewItem listItems = new ListViewItem(skill.Skill.ToString());
+                    listItems.SubItems.Add(skill.Experience.ToString());
+                    myControl.RequiredSkills.Items.Add(listItems);
+                }
+                
+                
+                
+>>>>>>> e1abfe853d1c44d4645dcf8fc50584882ee4591f
             }
             else
             {
