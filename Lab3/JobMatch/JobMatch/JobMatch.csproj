@@ -76,14 +76,14 @@
     <Compile Include="Employer.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployerRates.cs">
+      <DependentUpon>FindJobModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employer\EmployerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Employer\EmployerMenu.Designer.cs">
       <DependentUpon>EmployerMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmployerRates.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Employer\EmployerSelectorView.cs">
       <SubType>UserControl</SubType>
@@ -112,17 +112,23 @@
     <Compile Include="JobSeeker\JobSeekerMenu.Designer.cs">
       <DependentUpon>JobSeekerMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="JobSeeker\JobSeekerSelectorView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="JobSeeker\JobSeekerSelectorView.Designer.cs">
+      <DependentUpon>JobSeekerSelectorView.cs</DependentUpon>
     </Compile>
     <Compile Include="JobSeeker\RegisterJobSeeker.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JobSeeker\RegisterJobSeeker.Designer.cs">
       <DependentUpon>RegisterJobSeeker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Job.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
@@ -138,25 +144,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterUser.cs">
+    <Compile Include="Forms\RegisterUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterUser.Designer.cs">
+    <Compile Include="Forms\RegisterUser.Designer.cs">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </Compile>
     <Compile Include="RequiredSkill.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="JobSeeker\JobSeekerSelectorView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="JobSeeker\JobSeekerSelectorView.Designer.cs">
-      <DependentUpon>JobSeekerSelectorView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SelectorForm.cs">
+    <Compile Include="Forms\SelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectorForm.Designer.cs">
+    <Compile Include="Forms\SelectorForm.Designer.cs">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Skill.cs">
@@ -171,11 +171,14 @@
     <EmbeddedResource Include="JobSeeker\JobSeekerMenu.resx">
       <DependentUpon>JobSeekerMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="JobSeeker\JobSeekerSelectorView.resx">
+      <DependentUpon>JobSeekerSelectorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeeker\RegisterJobSeeker.resx">
       <DependentUpon>RegisterJobSeeker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -186,13 +189,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegisterUser.resx">
+    <EmbeddedResource Include="Forms\RegisterUser.resx">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JobSeeker\JobSeekerSelectorView.resx">
-      <DependentUpon>JobSeekerSelectorView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SelectorForm.resx">
+    <EmbeddedResource Include="Forms\SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="FindJobModel.edmx">
