@@ -180,6 +180,9 @@
     <EmbeddedResource Include="Employer\EmployerSelectorView.resx">
       <DependentUpon>EmployerSelectorView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employer\JobRegistration.resx">
+      <DependentUpon>JobRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employer\MyJobsForm.resx">
       <DependentUpon>MyJobsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +245,9 @@
       <DependentUpon>FindJobModel.edmx</DependentUpon>
       <LastGenOutput>FindJobModel.cs</LastGenOutput>
     </Content>
+    <None Include="ToDo">
+      <SubType>Form</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

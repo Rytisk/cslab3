@@ -35,7 +35,6 @@ namespace JobMatch
                 _jobSeekerControl = new JobSeekerSelectorView();
                 panel1.Controls.Add(_jobSeekerControl);
                 _jobSeekerControl.RequiredSkills.Columns.Add("Skill", 140);
-                _jobSeekerControl.RequiredSkills.Columns.Add("Experience", 130);
             }
             else if(_userType == Type.Employer)
             {
@@ -49,8 +48,8 @@ namespace JobMatch
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem(new string[] { "C#", "2 year" }));
-            _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem(new string[] { "Java", "1 year" }));
+            _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem("C#"));              //Data from DB
+            _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem("Java"));            //
 
 
             //     ListViewItem listItems2 = new ListViewItem("Java");

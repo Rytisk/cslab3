@@ -16,11 +16,11 @@ namespace JobMatch
         {
             get
             {
-                return company_name.Text;
+                return company_name_box.Text;
             }
             set
             {
-                company_name.Text = value;
+                company_name_box.Text = value;
             }
         }
 
@@ -28,11 +28,11 @@ namespace JobMatch
         {
             get
             {
-                return job_position.Text;
+                return job_position_box.Text;
             }
             set
             {
-                job_position.Text = value;
+                job_position_box.Text = value;
             }
         }
 
@@ -40,11 +40,11 @@ namespace JobMatch
         {
             get
             {
-                return short_description.Text;
+                return short_description_box.Text;
             }
             set
             {
-                short_description.Text = value;
+                short_description_box.Text = value;
             }
         }
 
@@ -52,11 +52,11 @@ namespace JobMatch
         {
             get
             {
-                return required_skills;
+                return required_skills_listview;
             }
             set
             {
-                required_skills = value;
+                required_skills_listview = value;
             }
         }
 
@@ -64,11 +64,11 @@ namespace JobMatch
         {
             get
             {
-                return education_place.Text;
+                return education_box.Text;
             }
             set
             {
-                education_place.Text = value;
+                education_box.Text = value;
             }
         }
 
@@ -76,11 +76,11 @@ namespace JobMatch
         {
             get
             {
-                return aditional_requirements.Text;
+                return aditional_requirements_box.Text;
             }
             set
             {
-                aditional_requirements.Text = value;
+                aditional_requirements_box.Text = value;
             }
 
         }

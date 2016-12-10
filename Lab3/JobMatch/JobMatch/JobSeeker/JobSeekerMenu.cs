@@ -29,5 +29,13 @@ namespace JobMatch
         {
             Dispose();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            RegisterJobSeeker JBReg = new RegisterJobSeeker();
+            JBReg.ShowDialog(this);
+            Show();
+        }
     }
 }

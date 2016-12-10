@@ -31,15 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.short_description = new System.Windows.Forms.TextBox();
-            this.company_name = new System.Windows.Forms.TextBox();
-            this.job_position = new System.Windows.Forms.TextBox();
-            this.required_skills = new System.Windows.Forms.ListView();
+            this.short_description_box = new System.Windows.Forms.TextBox();
+            this.company_name_box = new System.Windows.Forms.TextBox();
+            this.job_position_box = new System.Windows.Forms.TextBox();
+            this.required_skills_listview = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.education_place = new System.Windows.Forms.TextBox();
+            this.education_box = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.aditional_requirements = new System.Windows.Forms.TextBox();
+            this.aditional_requirements_box = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -69,42 +69,42 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Short Job Description";
             // 
-            // short_description
+            // short_description_box
             // 
-            this.short_description.Location = new System.Drawing.Point(36, 121);
-            this.short_description.Multiline = true;
-            this.short_description.Name = "short_description";
-            this.short_description.ReadOnly = true;
-            this.short_description.Size = new System.Drawing.Size(291, 127);
-            this.short_description.TabIndex = 3;
+            this.short_description_box.Location = new System.Drawing.Point(36, 121);
+            this.short_description_box.Multiline = true;
+            this.short_description_box.Name = "short_description_box";
+            this.short_description_box.ReadOnly = true;
+            this.short_description_box.Size = new System.Drawing.Size(291, 127);
+            this.short_description_box.TabIndex = 3;
             // 
-            // company_name
+            // company_name_box
             // 
-            this.company_name.Location = new System.Drawing.Point(143, 12);
-            this.company_name.Multiline = true;
-            this.company_name.Name = "company_name";
-            this.company_name.ReadOnly = true;
-            this.company_name.Size = new System.Drawing.Size(184, 22);
-            this.company_name.TabIndex = 4;
+            this.company_name_box.Location = new System.Drawing.Point(143, 12);
+            this.company_name_box.Multiline = true;
+            this.company_name_box.Name = "company_name_box";
+            this.company_name_box.ReadOnly = true;
+            this.company_name_box.Size = new System.Drawing.Size(184, 22);
+            this.company_name_box.TabIndex = 4;
             // 
-            // job_position
+            // job_position_box
             // 
-            this.job_position.Location = new System.Drawing.Point(143, 55);
-            this.job_position.Multiline = true;
-            this.job_position.Name = "job_position";
-            this.job_position.ReadOnly = true;
-            this.job_position.Size = new System.Drawing.Size(184, 22);
-            this.job_position.TabIndex = 5;
+            this.job_position_box.Location = new System.Drawing.Point(143, 55);
+            this.job_position_box.Multiline = true;
+            this.job_position_box.Name = "job_position_box";
+            this.job_position_box.ReadOnly = true;
+            this.job_position_box.Size = new System.Drawing.Size(184, 22);
+            this.job_position_box.TabIndex = 5;
             // 
-            // required_skills
+            // required_skills_listview
             // 
-            this.required_skills.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.required_skills.Location = new System.Drawing.Point(36, 287);
-            this.required_skills.Name = "required_skills";
-            this.required_skills.Size = new System.Drawing.Size(291, 97);
-            this.required_skills.TabIndex = 6;
-            this.required_skills.UseCompatibleStateImageBehavior = false;
-            this.required_skills.View = System.Windows.Forms.View.Details;
+            this.required_skills_listview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.required_skills_listview.Location = new System.Drawing.Point(36, 287);
+            this.required_skills_listview.Name = "required_skills_listview";
+            this.required_skills_listview.Size = new System.Drawing.Size(291, 97);
+            this.required_skills_listview.TabIndex = 6;
+            this.required_skills_listview.UseCompatibleStateImageBehavior = false;
+            this.required_skills_listview.View = System.Windows.Forms.View.Details;
             // 
             // label4
             // 
@@ -124,13 +124,13 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Education";
             // 
-            // education_place
+            // education_box
             // 
-            this.education_place.Location = new System.Drawing.Point(103, 403);
-            this.education_place.Name = "education_place";
-            this.education_place.ReadOnly = true;
-            this.education_place.Size = new System.Drawing.Size(224, 20);
-            this.education_place.TabIndex = 9;
+            this.education_box.Location = new System.Drawing.Point(103, 403);
+            this.education_box.Name = "education_box";
+            this.education_box.ReadOnly = true;
+            this.education_box.Size = new System.Drawing.Size(224, 20);
+            this.education_box.TabIndex = 9;
             // 
             // label6
             // 
@@ -141,28 +141,28 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Aditional Requirements";
             // 
-            // aditional_requirements
+            // aditional_requirements_box
             // 
-            this.aditional_requirements.Location = new System.Drawing.Point(36, 477);
-            this.aditional_requirements.Multiline = true;
-            this.aditional_requirements.Name = "aditional_requirements";
-            this.aditional_requirements.ReadOnly = true;
-            this.aditional_requirements.Size = new System.Drawing.Size(291, 127);
-            this.aditional_requirements.TabIndex = 11;
+            this.aditional_requirements_box.Location = new System.Drawing.Point(36, 477);
+            this.aditional_requirements_box.Multiline = true;
+            this.aditional_requirements_box.Name = "aditional_requirements_box";
+            this.aditional_requirements_box.ReadOnly = true;
+            this.aditional_requirements_box.Size = new System.Drawing.Size(291, 127);
+            this.aditional_requirements_box.TabIndex = 11;
             // 
             // JobSeekerSelectorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.aditional_requirements);
+            this.Controls.Add(this.aditional_requirements_box);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.education_place);
+            this.Controls.Add(this.education_box);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.required_skills);
-            this.Controls.Add(this.job_position);
-            this.Controls.Add(this.company_name);
-            this.Controls.Add(this.short_description);
+            this.Controls.Add(this.required_skills_listview);
+            this.Controls.Add(this.job_position_box);
+            this.Controls.Add(this.company_name_box);
+            this.Controls.Add(this.short_description_box);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -178,14 +178,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox short_description;
-        private System.Windows.Forms.TextBox company_name;
-        private System.Windows.Forms.TextBox job_position;
-        private System.Windows.Forms.ListView required_skills;
+        private System.Windows.Forms.TextBox short_description_box;
+        private System.Windows.Forms.TextBox company_name_box;
+        private System.Windows.Forms.TextBox job_position_box;
+        private System.Windows.Forms.ListView required_skills_listview;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox education_place;
+        private System.Windows.Forms.TextBox education_box;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox aditional_requirements;
+        private System.Windows.Forms.TextBox aditional_requirements_box;
     }
 }
