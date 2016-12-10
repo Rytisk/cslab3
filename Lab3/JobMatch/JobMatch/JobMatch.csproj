@@ -72,10 +72,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataForSelector.cs" />
+    <Compile Include="EmployerDataSelector.cs" />
     <Compile Include="DBHandler.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployerMenu.Designer.cs">
+      <DependentUpon>EmployerMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployerRates.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
@@ -85,11 +91,6 @@
     </Compile>
     <Compile Include="EmployerSelector.Designer.cs">
       <DependentUpon>EmployerSelector.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FindJobDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FindJobModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -162,6 +163,9 @@
     <Compile Include="Skill.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EmployerMenu.resx">
+      <DependentUpon>EmployerMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployerSelector.resx">
       <DependentUpon>EmployerSelector.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,17 +196,6 @@
     <EmbeddedResource Include="SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="FindJobDBDataSet.xsc">
-      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FindJobDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FindJobDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FindJobDBDataSet.xss">
-      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
-    </None>
     <EntityDeploy Include="FindJobModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FindJobModel.Designer.cs</LastGenOutput>

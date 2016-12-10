@@ -15,34 +15,59 @@ namespace JobMatch
     {
         JobSeekerSelector myControl;
         private int employerIndex;
-        List<DataForSelector> employers;
+        List<EmployerDataSelector> employers;
+        DBHandler db;
+        Type _userType;
 
-        public SelectorForm()
+        public SelectorForm(Type userType)
         {
-            DBHandler db = new DBHandler();
-            employers = db.GetEmployer();
+            _userType = userType;
+            if(userType == Type.JobSeeker)
+            {
+                myControl = new JobSeekerSelector();
+                panel1.Controls.Add(myControl);
+            }
+            else if(userType == Type.Employer)
+            {
+                myControl = new EmployerSelector();
+                panel1.Controls.Add(myControl);
+            }
+           // db = new DBHandler();
+         //   employers = db.GetEmployer();
             InitializeComponent();
         }
 
         private void SelectorForm_Load(object sender, EventArgs e)
         {
-            myControl = new JobSeekerSelector();
-            panel1.Controls.Add(myControl);
+            
             
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataForSelector emp;
+            EmployerDataSelector emp;
             if(employers.Count > employerIndex)
             {
-                emp = employers.ElementAt(employerIndex++);
-                myControl.NameOfCompany = emp.CompanyName;
-                myControl.Education = emp.Education;
-                myControl.JobPosition = emp.Position;
-                myControl.ShortJobDescription = emp.ShortJobDescription;
-                myControl.AditionalRequirements = emp.AdditionalRequirements;
+                //BAD CODE
+                //emp = employers.ElementAt(employerIndex++);
+                //myControl.NameOfCompany = emp.CompanyName;
+                //myControl.Education = emp.Education;
+                //myControl.JobPosition = emp.Position;
+                //myControl.ShortJobDescription = emp.ShortJobDescription;
+                //myControl.AditionalRequirements = emp.AdditionalRequirements;
+
+                //var reqSkills = db.GetRequiredSkills(emp.Id);
+
+                //foreach (RequiredSkill skill in reqSkills)
+                //{
+                //    ListViewItem listItems = new ListViewItem(skill.Skill.ToString());
+                //    listItems.SubItems.Add(skill.Experience.ToString());
+                //    myControl.RequiredSkills.Items.Add(listItems);
+                //}
+
+
+
             }
             else
             {
