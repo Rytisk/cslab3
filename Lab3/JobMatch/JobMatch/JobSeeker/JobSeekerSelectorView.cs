@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace JobMatch
 {
-    public partial class JobSeekerSelector : UserControl
+    public partial class JobSeekerSelectorView : UserControl
     {
         public string NameOfCompany
         {
@@ -85,7 +85,7 @@ namespace JobMatch
 
         }
 
-        public JobSeekerSelector()
+        public JobSeekerSelectorView()
         {
             InitializeComponent();
         }

@@ -28,13 +28,13 @@ C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.xml
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csprojResolveAssemblyReference.cache
-C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerSelector.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerMenu.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.LoginForm.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterJobSeeker.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.Properties.Resources.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterUser.resources
-C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelector.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.SelectorForm.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csproj.GenerateResource.Cache
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerMenu.resources
+C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerSelectorView.resources
+C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelectorView.resources

@@ -1,6 +1,6 @@
 ﻿namespace JobMatch
 {
-    partial class EmployerSelector
+    partial class EmployerSelectorView
     {
         /// <summary> 
         /// Required designer variable.

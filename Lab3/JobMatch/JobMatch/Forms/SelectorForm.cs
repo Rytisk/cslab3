@@ -13,8 +13,8 @@ namespace JobMatch
 {
     public partial class SelectorForm : Form
     {
-        JobSeekerSelector _jobSeekerControl;
-        EmployerSelector _employerControl;
+        JobSeekerSelectorView _jobSeekerControl;
+        EmployerSelectorView _employerControl;
         private int employerIndex;
         //  List<EmployerDataSelector> employers;
         Type _userType;
@@ -32,12 +32,12 @@ namespace JobMatch
 
             if(_userType == Type.JobSeeker)
             {
-                _jobSeekerControl = new JobSeekerSelector();
+                _jobSeekerControl = new JobSeekerSelectorView();
                 panel1.Controls.Add(_jobSeekerControl);
             }
             else if(_userType == Type.Employer)
             {
-                _employerControl = new EmployerSelector();
+                _employerControl = new EmployerSelectorView();
                 panel1.Controls.Add(_employerControl);
             }
             
