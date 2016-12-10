@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JobMatch
 {
-    public partial class EmployerSelector : UserControl
+    public partial class EmployerSelectorView : UserControl
     {
-        public EmployerSelector()
+        public EmployerSelectorView()
         {
             InitializeComponent();
         }
