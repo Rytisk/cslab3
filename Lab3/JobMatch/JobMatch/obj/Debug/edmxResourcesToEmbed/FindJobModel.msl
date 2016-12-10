@@ -31,7 +31,6 @@
           <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
           <ScalarProperty Name="EducationRequirements" ColumnName="EducationRequirements" />
           <ScalarProperty Name="AditionalRequirements" ColumnName="AditionalRequirements" />
-          <ScalarProperty Name="RequiredSkill_Id" ColumnName="RequiredSkill_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -64,7 +63,6 @@
           <ScalarProperty Name="Education" ColumnName="Education" />
           <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
           <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
-          <ScalarProperty Name="Skill_Id" ColumnName="Skill_Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,5 +84,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="HasRequiredSkills" TypeName="FindJobDBModel.HasRequiredSkills" StoreEntitySet="HasRequiredSkills">
+      <EndProperty Name="RequiredSkill">
+        <ScalarProperty Name="Id" ColumnName="RequiredSkill_id" />
+      </EndProperty>
+      <EndProperty Name="Job">
+        <ScalarProperty Name="Id" ColumnName="Job_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HasSkills" TypeName="FindJobDBModel.HasSkills" StoreEntitySet="HasSkills">
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="Skill_id" />
+      </EndProperty>
+      <EndProperty Name="Profile">
+        <ScalarProperty Name="JobSeeker_Id" ColumnName="Profile_id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

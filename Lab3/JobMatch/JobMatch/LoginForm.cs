@@ -41,6 +41,10 @@ namespace JobMatch
             else if (radioButton2.Checked)
             {
                 type = Type.Employer;
+                Hide();
+                EmployerMenu EMenu = new EmployerMenu();
+                EMenu.ShowDialog(this);
+                Show();
             }
             else
             {

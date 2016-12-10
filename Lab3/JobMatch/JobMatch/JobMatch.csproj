@@ -72,7 +72,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployerDataSelector.cs" />
     <Compile Include="DBHandler.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>FindJobModel.tt</DependentUpon>

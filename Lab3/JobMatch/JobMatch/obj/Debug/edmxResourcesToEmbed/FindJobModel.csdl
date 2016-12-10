@@ -35,10 +35,9 @@
     <Property Name="JobDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="EducationRequirements" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="AditionalRequirements" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RequiredSkill_Id" Type="Int32" />
     <NavigationProperty Name="Employer" Relationship="Self.FK_Job_Employer" FromRole="Job" ToRole="Employer" />
-    <NavigationProperty Name="RequiredSkill" Relationship="Self.FK_Job_RequiredSkill" FromRole="Job" ToRole="RequiredSkill" />
     <NavigationProperty Name="JobSeekerRates" Relationship="Self.FK_JobSeekerRates_Job" FromRole="Job" ToRole="JobSeekerRates" />
+    <NavigationProperty Name="RequiredSkill1" Relationship="FindJobDBModel.HasRequiredSkills" FromRole="Job" ToRole="RequiredSkill" />
   </EntityType>
   <EntityType Name="JobSeeker">
     <Key>
@@ -73,10 +72,9 @@
     <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ShortDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="WorkExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Skill_Id" Type="Int32" />
     <NavigationProperty Name="EmployerRates" Relationship="Self.FK_EmployerRates_Profile" FromRole="Profile" ToRole="EmployerRates" />
     <NavigationProperty Name="JobSeeker" Relationship="Self.FK_Profile_JobSeeker" FromRole="Profile" ToRole="JobSeeker" />
-    <NavigationProperty Name="Skill" Relationship="Self.FK_Profile_Skill" FromRole="Profile" ToRole="Skill" />
+    <NavigationProperty Name="Skill1" Relationship="FindJobDBModel.HasSkills" FromRole="Profile" ToRole="Skill" />
   </EntityType>
   <EntityType Name="RequiredSkill">
     <Key>
@@ -85,7 +83,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Skill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Experience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Job" Relationship="Self.FK_Job_RequiredSkill" FromRole="RequiredSkill" ToRole="Job" />
+    <NavigationProperty Name="Job1" Relationship="FindJobDBModel.HasRequiredSkills" FromRole="RequiredSkill" ToRole="Job" />
   </EntityType>
   <EntityType Name="Skill">
     <Key>
@@ -94,7 +92,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Skill1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Experience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Profile" Relationship="Self.FK_Profile_Skill" FromRole="Skill" ToRole="Profile" />
+    <NavigationProperty Name="Profile1" Relationship="FindJobDBModel.HasSkills" FromRole="Skill" ToRole="Profile" />
   </EntityType>
   <Association Name="FK_EmployerRates_Employer">
     <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
@@ -129,18 +127,6 @@
       </Principal>
       <Dependent Role="EmployerRates">
         <PropertyRef Name="JobSeeker_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Job_RequiredSkill">
-    <End Role="RequiredSkill" Type="Self.RequiredSkill" Multiplicity="0..1" />
-    <End Role="Job" Type="Self.Job" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RequiredSkill">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Job">
-        <PropertyRef Name="RequiredSkill_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -180,18 +166,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Profile_Skill">
-    <End Role="Skill" Type="Self.Skill" Multiplicity="0..1" />
-    <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Skill">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Profile">
-        <PropertyRef Name="Skill_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="FindJobDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Employer" EntityType="Self.Employer" />
     <EntitySet Name="EmployerRates" EntityType="Self.EmployerRates" />
@@ -213,10 +187,6 @@
       <End Role="Profile" EntitySet="Profile" />
       <End Role="EmployerRates" EntitySet="EmployerRates" />
     </AssociationSet>
-    <AssociationSet Name="FK_Job_RequiredSkill" Association="Self.FK_Job_RequiredSkill">
-      <End Role="RequiredSkill" EntitySet="RequiredSkill" />
-      <End Role="Job" EntitySet="Job" />
-    </AssociationSet>
     <AssociationSet Name="FK_JobSeekerRates_Job" Association="Self.FK_JobSeekerRates_Job">
       <End Role="Job" EntitySet="Job" />
       <End Role="JobSeekerRates" EntitySet="JobSeekerRates" />
@@ -229,9 +199,21 @@
       <End Role="JobSeeker" EntitySet="JobSeeker" />
       <End Role="Profile" EntitySet="Profile" />
     </AssociationSet>
-    <AssociationSet Name="FK_Profile_Skill" Association="Self.FK_Profile_Skill">
-      <End Role="Skill" EntitySet="Skill" />
+    <AssociationSet Name="HasRequiredSkills" Association="FindJobDBModel.HasRequiredSkills">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="RequiredSkill" EntitySet="RequiredSkill" />
+    </AssociationSet>
+    <AssociationSet Name="HasSkills" Association="FindJobDBModel.HasSkills">
       <End Role="Profile" EntitySet="Profile" />
+      <End Role="Skill" EntitySet="Skill" />
     </AssociationSet>
   </EntityContainer>
+  <Association Name="HasRequiredSkills">
+    <End Type="FindJobDBModel.Job" Role="Job" Multiplicity="*" />
+    <End Type="FindJobDBModel.RequiredSkill" Role="RequiredSkill" Multiplicity="*" />
+  </Association>
+  <Association Name="HasSkills">
+    <End Type="FindJobDBModel.Profile" Role="Profile" Multiplicity="*" />
+    <End Type="FindJobDBModel.Skill" Role="Skill" Multiplicity="*" />
+  </Association>
 </Schema>

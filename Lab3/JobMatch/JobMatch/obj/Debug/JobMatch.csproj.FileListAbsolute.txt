@@ -37,3 +37,4 @@ C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.Registe
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelector.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.SelectorForm.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.csproj.GenerateResource.Cache
+C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerMenu.resources
