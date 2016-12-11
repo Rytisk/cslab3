@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FindJobDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EmployerRates">
+    <Key>
+      <PropertyRef Name="Employer_Id" />
+      <PropertyRef Name="JobSeeker_Id" />
+      <PropertyRef Name="Job_Id" />
+    </Key>
+    <Property Name="Employer_Id" Type="int" Nullable="false" />
+    <Property Name="JobSeeker_Id" Type="int" Nullable="false" />
+    <Property Name="Job_Id" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employer_Id" Type="int" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="JobDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="EducationRequirements" Type="nvarchar" MaxLength="50" />
+    <Property Name="AditionalRequirements" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JobSeeker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobSeekerRates">
+    <Key>
+      <PropertyRef Name="JobSeeker_Id" />
+      <PropertyRef Name="Job_Id" />
+    </Key>
+    <Property Name="JobSeeker_Id" Type="int" Nullable="false" />
+    <Property Name="Job_Id" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="JobSeeker_Id" />
+    </Key>
+    <Property Name="JobSeeker_Id" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Education" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShortDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactData" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkExperience" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RequiredSkill">
+    <Key>
+      <PropertyRef Name="Job_Id" />
+      <PropertyRef Name="Skill" />
+    </Key>
+    <Property Name="Job_Id" Type="int" Nullable="false" />
+    <Property Name="Skill" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Profile_Id" />
+      <PropertyRef Name="Skill" />
+    </Key>
+    <Property Name="Profile_Id" Type="int" Nullable="false" />
+    <Property Name="Skill" Type="nchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_EmployerRates_Employer">
+    <End Role="Employer" Type="Self.Employer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployerRates" Type="Self.EmployerRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployerRates">
+        <PropertyRef Name="Employer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployerRates_Profile">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployerRates" Type="Self.EmployerRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="JobSeeker_Id" />
+      </Principal>
+      <Dependent Role="EmployerRates">
+        <PropertyRef Name="JobSeeker_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Job_Employer">
+    <End Role="Employer" Type="Self.Employer" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="Employer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobSeekerRates_Job">
+    <End Role="Job" Type="Self.Job" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobSeekerRates" Type="Self.JobSeekerRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobSeekerRates">
+        <PropertyRef Name="Job_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobSeekerRates_JobSeeker">
+    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JobSeekerRates" Type="Self.JobSeekerRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobSeeker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobSeekerRates">
+        <PropertyRef Name="JobSeeker_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profile_JobSeeker">
+    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="JobSeeker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="JobSeeker_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequiredSkill_Job">
+    <End Role="Job" Type="Self.Job" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RequiredSkill" Type="Self.RequiredSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequiredSkill">
+        <PropertyRef Name="Job_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_Profile">
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profile">
+        <PropertyRef Name="JobSeeker_Id" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="Profile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FindJobDBModelStoreContainer">
+    <EntitySet Name="Employer" EntityType="Self.Employer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployerRates" EntityType="Self.EmployerRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobSeeker" EntityType="Self.JobSeeker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobSeekerRates" EntityType="Self.JobSeekerRates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequiredSkill" EntityType="Self.RequiredSkill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_EmployerRates_Employer" Association="Self.FK_EmployerRates_Employer">
+      <End Role="Employer" EntitySet="Employer" />
+      <End Role="EmployerRates" EntitySet="EmployerRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployerRates_Profile" Association="Self.FK_EmployerRates_Profile">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="EmployerRates" EntitySet="EmployerRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Job_Employer" Association="Self.FK_Job_Employer">
+      <End Role="Employer" EntitySet="Employer" />
+      <End Role="Job" EntitySet="Job" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobSeekerRates_Job" Association="Self.FK_JobSeekerRates_Job">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="JobSeekerRates" EntitySet="JobSeekerRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobSeekerRates_JobSeeker" Association="Self.FK_JobSeekerRates_JobSeeker">
+      <End Role="JobSeeker" EntitySet="JobSeeker" />
+      <End Role="JobSeekerRates" EntitySet="JobSeekerRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profile_JobSeeker" Association="Self.FK_Profile_JobSeeker">
+      <End Role="JobSeeker" EntitySet="JobSeeker" />
+      <End Role="Profile" EntitySet="Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequiredSkill_Job" Association="Self.FK_RequiredSkill_Job">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="RequiredSkill" EntitySet="RequiredSkill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Profile" Association="Self.FK_Skill_Profile">
+      <End Role="Profile" EntitySet="Profile" />
+      <End Role="Skill" EntitySet="Skill" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

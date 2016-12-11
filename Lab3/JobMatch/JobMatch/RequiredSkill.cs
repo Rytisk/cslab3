@@ -14,17 +14,9 @@ namespace JobMatch
     
     public partial class RequiredSkill
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RequiredSkill()
-        {
-            this.Job1 = new HashSet<Job>();
-        }
-    
-        public int Id { get; set; }
+        public int Job_Id { get; set; }
         public string Skill { get; set; }
-        public string Experience { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Job> Job1 { get; set; }
+        public virtual Job Job { get; set; }
     }
 }

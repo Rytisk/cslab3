@@ -72,12 +72,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\EmployerController.cs" />
+    <Compile Include="Database\IController.cs" />
+    <Compile Include="Database\JobSeekerController.cs" />
     <Compile Include="DBHandler.cs" />
     <Compile Include="Employer.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployerRates.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Employer\EmployerMenu.cs">
       <SubType>Form</SubType>
@@ -109,20 +112,29 @@
     <Compile Include="Employer\RatedEmployees.Designer.cs">
       <DependentUpon>RatedEmployees.cs</DependentUpon>
     </Compile>
-    <Compile Include="FindJobModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FindJobModel.Context.tt</DependentUpon>
+    <Compile Include="Job.cs">
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FindJobModel.cs">
+    <Compile Include="JobMatchModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FindJobModel.tt</DependentUpon>
+      <DependentUpon>JobMatchModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FindJobModel.Designer.cs">
+    <Compile Include="JobMatchModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FindJobModel.edmx</DependentUpon>
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobMatchModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobMatchModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeeker.cs">
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerRates.cs">
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="JobSeeker\RatedJobs.cs">
       <SubType>Form</SubType>
@@ -154,17 +166,9 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Job.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JobSeeker.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JobSeekerRates.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="LoginValidation.cs" />
     <Compile Include="Profile.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,17 +178,17 @@
     <Compile Include="Forms\RegisterUser.Designer.cs">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequiredSkill.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SelectorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\SelectorForm.Designer.cs">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RequiredSkill.cs">
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Skill.cs">
-      <DependentUpon>FindJobModel.tt</DependentUpon>
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Employer\EmployerMenu.resx">
       <DependentUpon>EmployerMenu.cs</DependentUpon>
@@ -231,12 +235,12 @@
     <EmbeddedResource Include="Forms\SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="FindJobModel.edmx">
+    <EntityDeploy Include="JobMatchModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FindJobModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>JobMatchModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="FindJobModel.edmx.diagram">
-      <DependentUpon>FindJobModel.edmx</DependentUpon>
+    <None Include="JobMatchModel.edmx.diagram">
+      <DependentUpon>JobMatchModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,16 +257,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FindJobModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FindJobModel.edmx</DependentUpon>
-      <LastGenOutput>FindJobModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="FindJobModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FindJobModel.edmx</DependentUpon>
-      <LastGenOutput>FindJobModel.cs</LastGenOutput>
-    </Content>
     <None Include="ToDo">
       <SubType>Form</SubType>
     </None>
@@ -281,6 +275,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JobMatchModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobMatchModel.edmx</DependentUpon>
+      <LastGenOutput>JobMatchModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="JobMatchModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobMatchModel.edmx</DependentUpon>
+      <LastGenOutput>JobMatchModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

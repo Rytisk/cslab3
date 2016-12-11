@@ -18,18 +18,20 @@ namespace JobMatch
         public Profile()
         {
             this.EmployerRates = new HashSet<EmployerRates>();
-            this.Skill1 = new HashSet<Skill>();
+            this.Skill = new HashSet<Skill>();
         }
     
         public int JobSeeker_Id { get; set; }
+        public string LastName { get; set; }
         public string Education { get; set; }
         public string ShortDescription { get; set; }
+        public string ContactData { get; set; }
         public string WorkExperience { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployerRates> EmployerRates { get; set; }
         public virtual JobSeeker JobSeeker { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Skill> Skill1 { get; set; }
+        public virtual ICollection<Skill> Skill { get; set; }
     }
 }

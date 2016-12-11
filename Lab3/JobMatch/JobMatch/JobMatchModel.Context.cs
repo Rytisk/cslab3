@@ -13,10 +13,10 @@ namespace JobMatch
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FindJobDBEntities : DbContext
+    public partial class JobMatchEntities : DbContext
     {
-        public FindJobDBEntities()
-            : base("name=FindJobDBEntities")
+        public JobMatchEntities()
+            : base("name=JobMatchEntities")
         {
         }
     

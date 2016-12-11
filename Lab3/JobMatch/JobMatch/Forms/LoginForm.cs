@@ -33,18 +33,32 @@ namespace JobMatch
             if (radioButton1.Checked)
             {
                 type = Type.JobSeeker;
-                Hide();
-                JobSeekerMenu JSMenu = new JobSeekerMenu();
-                JSMenu.ShowDialog(this);
-                Show();
+                if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
+                {
+                    Hide();
+                    JobSeekerMenu JSMenu = new JobSeekerMenu();
+                    JSMenu.ShowDialog(this);
+                    Show();
+                }
+                else
+                {
+                    MessageBox.Show("Username or Password is incorrect");
+                }
             }
             else if (radioButton2.Checked)
             {
                 type = Type.Employer;
-                Hide();
-                EmployerMenu EMenu = new EmployerMenu();
-                EMenu.ShowDialog(this);
-                Show();
+                if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
+                {
+                    Hide();
+                    EmployerMenu EMenu = new EmployerMenu();
+                    EMenu.ShowDialog(this);
+                    Show();
+                }
+                else
+                {
+                    MessageBox.Show("Username or Password is incorrect");
+                }
             }
             else
             {
@@ -59,6 +73,8 @@ namespace JobMatch
             RegisterUser registerForm = new RegisterUser();
             registerForm.ShowDialog(this);
             Show();
+            
+            
         }
     }
 }
