@@ -9,33 +9,55 @@ namespace JobMatch.Database
 {
     class EmployerController : IController<Employer>
     {
-        public EmployerController()
-        {
-        }
 
-        public int Create(Employer obj)
+        public void Insert(Employer obj)
         {
             using(JobMatchEntities context = new JobMatchEntities())
             {
                 context.Employer.Add(obj);
                 context.SaveChanges();
             }
-            return obj.Id;
         }
 
-        public void Delete(string key)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Employer employer = null;
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                employer = context.Employer.SingleOrDefault(x => x.Id == id);
+                if (employer != null)
+                {
+                    context.Employer.Remove(employer);
+                    context.SaveChanges();
+                } 
+            }
         }
 
-        public Employer Retrieve(string key)
+        public Employer Select(int id)
         {
-            throw new NotImplementedException();
+            Employer emp = null;
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                emp = context.Employer.FirstOrDefault(x => x.Id == id);
+            }
+            return emp;
         }
 
         public void Update(Employer obj)
         {
-            throw new NotImplementedException();
+            Employer emp = null;
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                emp = context.Employer.FirstOrDefault(x => x.Id == obj.Id);
+                if(emp != null)
+                {
+                    emp.Email = obj.Email;
+                    emp.Name = obj.Name;
+                    emp.Password = obj.Password;
+                    emp.Username = obj.Username;
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

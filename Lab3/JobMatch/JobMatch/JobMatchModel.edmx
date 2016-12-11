@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FindJobDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FindJobDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employer">
           <Key>
             <PropertyRef Name="Id" />
@@ -84,7 +84,9 @@
           <Property Name="Skill" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_EmployerRates_Employer">
-          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="EmployerRates" Type="Self.EmployerRates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employer">
@@ -96,7 +98,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployerRates_Profile">
-          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="EmployerRates" Type="Self.EmployerRates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Profile">
@@ -108,7 +112,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Job_Employer">
-          <End Role="Employer" Type="Self.Employer" Multiplicity="0..1" />
+          <End Role="Employer" Type="Self.Employer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Job" Type="Self.Job" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employer">
@@ -120,7 +126,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_JobSeekerRates_Job">
-          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="JobSeekerRates" Type="Self.JobSeekerRates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
@@ -132,7 +140,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_JobSeekerRates_JobSeeker">
-          <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1" />
+          <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="JobSeekerRates" Type="Self.JobSeekerRates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="JobSeeker">
@@ -144,7 +154,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Profile_JobSeeker">
-          <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1" />
+          <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="JobSeeker">
@@ -156,7 +168,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RequiredSkill_Job">
-          <End Role="Job" Type="Self.Job" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="RequiredSkill" Type="Self.RequiredSkill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Job">
@@ -168,7 +182,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Skill_Profile">
-          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Profile">
@@ -221,8 +237,7 @@
             <End Role="Skill" EntitySet="Skill" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FindJobDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

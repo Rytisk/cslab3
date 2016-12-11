@@ -166,6 +166,7 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginValidation.cs" />
     <Compile Include="Profile.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>

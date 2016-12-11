@@ -8,9 +8,9 @@ namespace JobMatch.Database
 {
     public interface IController<T>
     {
-            int Create(T obj);
-            T Retrieve(string key);
+            void Insert(T obj);
+            T Select(int id);
             void Update(T obj);
-            void Delete(string key);
+            void Delete(int id);
     }
 }

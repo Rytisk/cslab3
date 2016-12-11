@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.username_box = new System.Windows.Forms.TextBox();
+            this.password_box = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -38,20 +38,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // username_box
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.username_box.Location = new System.Drawing.Point(86, 47);
+            this.username_box.Name = "username_box";
+            this.username_box.Size = new System.Drawing.Size(100, 20);
+            this.username_box.TabIndex = 0;
             // 
-            // textBox2
+            // password_box
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.password_box.Location = new System.Drawing.Point(86, 96);
+            this.password_box.Name = "password_box";
+            this.password_box.PasswordChar = '*';
+            this.password_box.Size = new System.Drawing.Size(100, 20);
+            this.password_box.TabIndex = 1;
             // 
             // button1
             // 
@@ -88,11 +88,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 47);
+            this.label1.Location = new System.Drawing.Point(27, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Name";
+            this.label1.Text = "Username";
             // 
             // label2
             // 
@@ -126,8 +126,8 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.password_box);
+            this.Controls.Add(this.username_box);
             this.Name = "LoginForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -137,8 +137,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox username_box;
+        private System.Windows.Forms.TextBox password_box;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;

@@ -36,7 +36,7 @@ namespace JobMatch
                     Email = email_box.Text.ToString()
                 };
                 EmployerController empController = new EmployerController();
-                empController.Create(emp);
+                empController.Insert(emp);
 
             }
             Dispose();
