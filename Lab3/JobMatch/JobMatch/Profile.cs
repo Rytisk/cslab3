@@ -22,6 +22,7 @@ namespace JobMatch
         }
     
         public int JobSeeker_Id { get; set; }
+        public string LastName { get; set; }
         public string Education { get; set; }
         public string ShortDescription { get; set; }
         public string ContactData { get; set; }

@@ -4,9 +4,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="EmployerRates" Relationship="Self.FK_EmployerRates_Employer" FromRole="Employer" ToRole="EmployerRates" />
@@ -29,7 +29,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Employer_Id" Type="Int32" />
     <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="JobDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -43,11 +43,10 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LoginPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="JobSeekerRates" Relationship="Self.FK_JobSeekerRates_JobSeeker" FromRole="JobSeeker" ToRole="JobSeekerRates" />
     <NavigationProperty Name="Profile" Relationship="Self.FK_Profile_JobSeeker" FromRole="JobSeeker" ToRole="Profile" />
@@ -68,6 +67,7 @@
       <PropertyRef Name="JobSeeker_Id" />
     </Key>
     <Property Name="JobSeeker_Id" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ShortDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ContactData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

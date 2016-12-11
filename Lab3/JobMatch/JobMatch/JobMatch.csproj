@@ -72,6 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\EmployerController.cs" />
+    <Compile Include="Database\IController.cs" />
+    <Compile Include="Database\JobSeekerController.cs" />
     <Compile Include="DBHandler.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
@@ -271,9 +274,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="JobMatchModel.Context.tt">
