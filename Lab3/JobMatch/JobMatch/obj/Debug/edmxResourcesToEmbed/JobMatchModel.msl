@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FindJobDBModelStoreContainer" CdmEntityContainer="JobMatchEntities">
+    <EntitySetMapping Name="Employer">
+      <EntityTypeMapping TypeName="FindJobDBModel.Employer">
+        <MappingFragment StoreEntitySet="Employer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployerRates">
+      <EntityTypeMapping TypeName="FindJobDBModel.EmployerRates">
+        <MappingFragment StoreEntitySet="EmployerRates">
+          <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
+          <ScalarProperty Name="JobSeeker_Id" ColumnName="JobSeeker_Id" />
+          <ScalarProperty Name="Job_Id" ColumnName="Job_Id" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job">
+      <EntityTypeMapping TypeName="FindJobDBModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+          <ScalarProperty Name="EducationRequirements" ColumnName="EducationRequirements" />
+          <ScalarProperty Name="AditionalRequirements" ColumnName="AditionalRequirements" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSeeker">
+      <EntityTypeMapping TypeName="FindJobDBModel.JobSeeker">
+        <MappingFragment StoreEntitySet="JobSeeker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSeekerRates">
+      <EntityTypeMapping TypeName="FindJobDBModel.JobSeekerRates">
+        <MappingFragment StoreEntitySet="JobSeekerRates">
+          <ScalarProperty Name="JobSeeker_Id" ColumnName="JobSeeker_Id" />
+          <ScalarProperty Name="Job_Id" ColumnName="Job_Id" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profile">
+      <EntityTypeMapping TypeName="FindJobDBModel.Profile">
+        <MappingFragment StoreEntitySet="Profile">
+          <ScalarProperty Name="JobSeeker_Id" ColumnName="JobSeeker_Id" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="ContactData" ColumnName="ContactData" />
+          <ScalarProperty Name="WorkExperience" ColumnName="WorkExperience" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequiredSkill">
+      <EntityTypeMapping TypeName="FindJobDBModel.RequiredSkill">
+        <MappingFragment StoreEntitySet="RequiredSkill">
+          <ScalarProperty Name="Job_Id" ColumnName="Job_Id" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skill">
+      <EntityTypeMapping TypeName="FindJobDBModel.Skill">
+        <MappingFragment StoreEntitySet="Skill">
+          <ScalarProperty Name="Profile_Id" ColumnName="Profile_Id" />
+          <ScalarProperty Name="Skill1" ColumnName="Skill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -14,17 +14,9 @@ namespace JobMatch
     
     public partial class Skill
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Skill()
-        {
-            this.Profile1 = new HashSet<Profile>();
-        }
-    
-        public int Id { get; set; }
+        public int Profile_Id { get; set; }
         public string Skill1 { get; set; }
-        public string Experience { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Profile> Profile1 { get; set; }
+        public virtual Profile Profile { get; set; }
     }
 }

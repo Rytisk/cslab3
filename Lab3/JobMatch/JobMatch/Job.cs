@@ -18,7 +18,7 @@ namespace JobMatch
         public Job()
         {
             this.JobSeekerRates = new HashSet<JobSeekerRates>();
-            this.RequiredSkill1 = new HashSet<RequiredSkill>();
+            this.RequiredSkill = new HashSet<RequiredSkill>();
         }
     
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace JobMatch
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobSeekerRates> JobSeekerRates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RequiredSkill> RequiredSkill1 { get; set; }
+        public virtual ICollection<RequiredSkill> RequiredSkill { get; set; }
     }
 }
