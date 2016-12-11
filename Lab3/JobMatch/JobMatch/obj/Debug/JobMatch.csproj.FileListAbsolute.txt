@@ -14,9 +14,7 @@ C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.pdb
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.LoginForm.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterJobSeeker.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RegisterUser.resources
-C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelector.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.SelectorForm.resources
-C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerSelector.resources
 C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerMenu.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\bin\Debug\JobMatch.exe.config
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.exe
@@ -41,3 +39,10 @@ C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeek
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.MyJobsForm.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobRegistration.resources
 C:\Users\Rytis\Projects\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RatedJobs.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerMenu.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.EmployerSelectorView.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobRegistration.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.MyJobsForm.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RatedJobs.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.JobSeekerSelectorView.resources
+C:\Users\Acer\cslab3\Lab3\JobMatch\JobMatch\obj\Debug\JobMatch.RatedEmployees.resources

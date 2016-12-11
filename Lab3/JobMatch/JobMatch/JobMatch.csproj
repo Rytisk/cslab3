@@ -103,6 +103,12 @@
     <Compile Include="Employer\MyJobsForm.Designer.cs">
       <DependentUpon>MyJobsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employer\RatedEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employer\RatedEmployees.Designer.cs">
+      <DependentUpon>RatedEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindJobModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employer\MyJobsForm.resx">
       <DependentUpon>MyJobsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employer\RatedEmployees.resx">
+      <DependentUpon>RatedEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeeker\RatedJobs.resx">
       <DependentUpon>RatedJobs.cs</DependentUpon>
