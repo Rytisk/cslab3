@@ -71,7 +71,7 @@
             <PropertyRef Name="Skill" />
           </Key>
           <Property Name="Job_Id" Type="int" Nullable="false" />
-          <Property Name="Skill" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Skill" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Skill">
           <Key>
@@ -79,7 +79,7 @@
             <PropertyRef Name="Skill" />
           </Key>
           <Property Name="Profile_Id" Type="int" Nullable="false" />
-          <Property Name="Skill" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Skill" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_EmployerRates_Employer">
           <End Role="Employer" Type="Self.Employer" Multiplicity="1">
@@ -310,7 +310,7 @@
             <PropertyRef Name="Skill" />
           </Key>
           <Property Name="Job_Id" Type="Int32" Nullable="false" />
-          <Property Name="Skill" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Skill" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Job" Relationship="Self.FK_RequiredSkill_Job" FromRole="RequiredSkill" ToRole="Job" />
         </EntityType>
         <EntityType Name="Skill">
@@ -319,7 +319,7 @@
             <PropertyRef Name="Skill1" />
           </Key>
           <Property Name="Profile_Id" Type="Int32" Nullable="false" />
-          <Property Name="Skill1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Skill1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Profile" Relationship="Self.FK_Skill_Profile" FromRole="Skill" ToRole="Profile" />
         </EntityType>
         <Association Name="FK_EmployerRates_Employer">

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobMatch.Database;
+using System.Diagnostics;
 
 namespace JobMatch
 {
@@ -20,8 +21,6 @@ namespace JobMatch
         List<JobSeeker> _jobSeekers;
         List<Job> _jobs;
         DBHandler dbhandler = new DBHandler();
-        private int employerIndex = 0;
-        private int jobSeekerIndex = 0;
         Type _userType;
 
         public SelectorForm(Type userType)
@@ -60,30 +59,38 @@ namespace JobMatch
 
         private void EmployersView()
         {
-            if (_jobSeekers.Count > jobSeekerIndex)
+            try
             {
-                var jobSeekerProfile = _jobSeekers.ElementAt(jobSeekerIndex++).Profile;
-                _employerControl.JobSeekerName = string.Format("{0} {1}", jobSeekerProfile.FirstName, jobSeekerProfile.LastName);
-                _employerControl.ContactData = jobSeekerProfile.ContactData;
-                _employerControl.ShortDescription = jobSeekerProfile.ShortDescription;
-                _employerControl.WorkExperience = jobSeekerProfile.WorkExperience;
-                _employerControl.Education = jobSeekerProfile.Education;
+                var jobSeeker = _jobSeekers.Take(1).Single();
+                _employerControl.JobSeekerName = string.Format("{0} {1}", jobSeeker.Profile.FirstName, jobSeeker.Profile.LastName);
+                _employerControl.ContactData = jobSeeker.Profile.ContactData;
+                _employerControl.ShortDescription = jobSeeker.Profile.ShortDescription;
+                _employerControl.WorkExperience = jobSeeker.Profile.WorkExperience;
+                _employerControl.Education = jobSeeker.Profile.Education;
 
-                string query = string.Format("select skill from skill where profile_Id = '{0}'", jobSeekerProfile.JobSeeker_Id);
+                string query = string.Format("select skill from skill where profile_Id = '{0}'", jobSeeker.Profile.JobSeeker_Id);
                 var skills = dbhandler.ReadQuery(query, _connectionString);
                 foreach (DataRow row in skills.Rows)
                 {
                     string skill = row["skill"].ToString();
                     _employerControl.Skills.Items.Add(new ListViewItem(skill));
                 }
+                _jobSeekers = _jobSeekers.Skip(1).ToList();
             }
+            catch(Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+                MessageBox.Show("No more Job Seekers!");
+                Dispose();
+            }
+            
         }
 
         private void JobSeekersView()
         {
-            if(_jobs.Count > employerIndex)
+            try
             {
-                var job = _jobs.ElementAt(employerIndex++);
+                var job = _jobs.Take(1).Single();
                 _jobSeekerControl.NameOfCompany = job.Name;
                 _jobSeekerControl.JobPosition = job.Position;
                 _jobSeekerControl.ShortJobDescription = job.JobDescription;
@@ -97,7 +104,17 @@ namespace JobMatch
                     string skill = row["skill"].ToString();
                     _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem(skill));
                 }
+
+                _jobs = _jobs.Skip(1).ToList();
             }
+            catch(Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+                MessageBox.Show("No more Jobs!");
+                Dispose();
+            }
+            
+
         }
 
         private void yes_btn_Click(object sender, EventArgs e)

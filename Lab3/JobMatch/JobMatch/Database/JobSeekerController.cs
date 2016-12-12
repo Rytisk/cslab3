@@ -55,6 +55,14 @@ namespace JobMatch.Database
             }
         }
 
+        public int GetIdByUsername(string username)
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.JobSeeker.SingleOrDefault(x => x.Username == username).Id;
+            }
+        }
+
         public List<JobSeeker> GetJobSeekers()
         {
             using (JobMatchEntities context = new JobMatchEntities())

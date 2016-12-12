@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fname_box = new System.Windows.Forms.TextBox();
-            this.lname_box = new System.Windows.Forms.TextBox();
+            this.first_name_box = new System.Windows.Forms.TextBox();
+            this.last_name_box = new System.Windows.Forms.TextBox();
             this.short_description_data = new System.Windows.Forms.TextBox();
             this.skills_checklist = new System.Windows.Forms.CheckedListBox();
             this.education_box = new System.Windows.Forms.TextBox();
@@ -45,19 +45,19 @@
             this.contact_data_box = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // fname_box
+            // first_name_box
             // 
-            this.fname_box.Location = new System.Drawing.Point(113, 7);
-            this.fname_box.Name = "fname_box";
-            this.fname_box.Size = new System.Drawing.Size(161, 20);
-            this.fname_box.TabIndex = 1;
+            this.first_name_box.Location = new System.Drawing.Point(113, 7);
+            this.first_name_box.Name = "first_name_box";
+            this.first_name_box.Size = new System.Drawing.Size(161, 20);
+            this.first_name_box.TabIndex = 1;
             // 
-            // lname_box
+            // last_name_box
             // 
-            this.lname_box.Location = new System.Drawing.Point(113, 44);
-            this.lname_box.Name = "lname_box";
-            this.lname_box.Size = new System.Drawing.Size(161, 20);
-            this.lname_box.TabIndex = 2;
+            this.last_name_box.Location = new System.Drawing.Point(113, 44);
+            this.last_name_box.Name = "last_name_box";
+            this.last_name_box.Size = new System.Drawing.Size(161, 20);
+            this.last_name_box.TabIndex = 2;
             // 
             // short_description_data
             // 
@@ -110,7 +110,7 @@
             this.update_profile_btn.TabIndex = 7;
             this.update_profile_btn.Text = "Update Profile";
             this.update_profile_btn.UseVisualStyleBackColor = true;
-            this.update_profile_btn.Click += new System.EventHandler(this.button1_Click);
+            this.update_profile_btn.Click += new System.EventHandler(this.update_profile_Click);
             // 
             // label1
             // 
@@ -201,9 +201,10 @@
             this.Controls.Add(this.education_box);
             this.Controls.Add(this.skills_checklist);
             this.Controls.Add(this.short_description_data);
-            this.Controls.Add(this.lname_box);
-            this.Controls.Add(this.fname_box);
+            this.Controls.Add(this.last_name_box);
+            this.Controls.Add(this.first_name_box);
             this.Name = "RegisterJobSeeker";
+            this.Load += new System.EventHandler(this.RegisterJobSeeker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,8 +212,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox fname_box;
-        private System.Windows.Forms.TextBox lname_box;
+        private System.Windows.Forms.TextBox first_name_box;
+        private System.Windows.Forms.TextBox last_name_box;
         private System.Windows.Forms.TextBox short_description_data;
         private System.Windows.Forms.CheckedListBox skills_checklist;
         private System.Windows.Forms.TextBox education_box;

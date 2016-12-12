@@ -1,2 +1,3 @@
 ﻿Run work with Database on another Task/Thread
 Write .Include(*relatioship*) to Selects in Controllers.
+Make input validation!!! Validate number of characters in registration text boxes.

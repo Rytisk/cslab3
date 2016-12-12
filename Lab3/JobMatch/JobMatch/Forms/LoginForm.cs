@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JobMatch.Database;
 
 namespace JobMatch
 {
@@ -19,7 +20,9 @@ namespace JobMatch
     }
     public partial class LoginForm : Form
     {
+        private int _myId;
         Type type;
+
         public LoginForm()
         {
             type = Type.None;
@@ -35,8 +38,10 @@ namespace JobMatch
                 type = Type.JobSeeker;
                 if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
                 {
+                    JobSeekerController jscontr = new JobSeekerController();
+                    _myId = jscontr.GetIdByUsername(username_box.Text);
                     Hide();
-                    JobSeekerMenu JSMenu = new JobSeekerMenu();
+                    JobSeekerMenu JSMenu = new JobSeekerMenu(_myId);
                     JSMenu.ShowDialog(this);
                     Show();
                 }
@@ -50,8 +55,10 @@ namespace JobMatch
                 type = Type.Employer;
                 if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
                 {
+                    EmployerController empcontr = new EmployerController();
+                    _myId = empcontr.GetIdByUsername(username_box.Text);
                     Hide();
-                    EmployerMenu EMenu = new EmployerMenu();
+                    EmployerMenu EMenu = new EmployerMenu(_myId);
                     EMenu.ShowDialog(this);
                     Show();
                 }

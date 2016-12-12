@@ -12,8 +12,10 @@ namespace JobMatch
 {
     public partial class JobSeekerMenu : Form
     {
-        public JobSeekerMenu()
+        private int _myId;
+        public JobSeekerMenu(int Id)
         {
+            _myId = Id;
             InitializeComponent();
         }
 
@@ -33,7 +35,7 @@ namespace JobMatch
         private void button3_Click(object sender, EventArgs e)
         {
             Hide();
-            RegisterJobSeeker JBReg = new RegisterJobSeeker();
+            RegisterJobSeeker JBReg = new RegisterJobSeeker(_myId);
             JBReg.ShowDialog(this);
             Show();
         }
