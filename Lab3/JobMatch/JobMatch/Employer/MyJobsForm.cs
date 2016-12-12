@@ -52,7 +52,7 @@ namespace JobMatch
             //dataGridView1.Rows.Add(row);
 
             Hide();
-            JobRegistration jbreg = new JobRegistration();
+            JobRegistration jbreg = new JobRegistration(_myId);
             jbreg.ShowDialog(this);
             Show();
         }

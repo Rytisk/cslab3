@@ -35,7 +35,6 @@ namespace JobMatch
 
         private void update_profile_Click(object sender, EventArgs e)
         {
-            
             Profile profile = new Profile()
             {
                 JobSeeker_Id = _myId,

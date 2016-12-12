@@ -78,6 +78,7 @@
     <Compile Include="Database\JobSeekerController.cs" />
     <Compile Include="Database\ProfileController.cs" />
     <Compile Include="Database\DBHandler.cs" />
+    <Compile Include="Database\RequiredSkillController.cs" />
     <Compile Include="Database\SkillController.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
