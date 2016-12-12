@@ -50,11 +50,17 @@ namespace JobMatch.Database
                 if(emp != null)
                 {
                     emp.Email = obj.Email;
-                    emp.Name = obj.Name;
                     emp.Password = obj.Password;
                     emp.Username = obj.Username;
                     context.SaveChanges();
                 }
+            }
+        }
+        public List<Employer> GetEmployers()
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.Employer.Include("Job").Include("EmployerRates").ToList();
             }
         }
     }

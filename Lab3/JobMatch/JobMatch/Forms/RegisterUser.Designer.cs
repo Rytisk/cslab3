@@ -37,8 +37,6 @@
             this.employer_rdbtn = new System.Windows.Forms.RadioButton();
             this.jobseeker_rdbtn = new System.Windows.Forms.RadioButton();
             this.register_btn = new System.Windows.Forms.Button();
-            this.name_box = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // username_box
@@ -93,7 +91,7 @@
             // employer_rdbtn
             // 
             this.employer_rdbtn.AutoSize = true;
-            this.employer_rdbtn.Location = new System.Drawing.Point(19, 228);
+            this.employer_rdbtn.Location = new System.Drawing.Point(19, 192);
             this.employer_rdbtn.Name = "employer_rdbtn";
             this.employer_rdbtn.Size = new System.Drawing.Size(68, 17);
             this.employer_rdbtn.TabIndex = 7;
@@ -104,7 +102,7 @@
             // jobseeker_rdbtn
             // 
             this.jobseeker_rdbtn.AutoSize = true;
-            this.jobseeker_rdbtn.Location = new System.Drawing.Point(183, 228);
+            this.jobseeker_rdbtn.Location = new System.Drawing.Point(193, 192);
             this.jobseeker_rdbtn.Name = "jobseeker_rdbtn";
             this.jobseeker_rdbtn.Size = new System.Drawing.Size(79, 17);
             this.jobseeker_rdbtn.TabIndex = 8;
@@ -114,7 +112,7 @@
             // 
             // register_btn
             // 
-            this.register_btn.Location = new System.Drawing.Point(98, 263);
+            this.register_btn.Location = new System.Drawing.Point(100, 230);
             this.register_btn.Name = "register_btn";
             this.register_btn.Size = new System.Drawing.Size(75, 23);
             this.register_btn.TabIndex = 9;
@@ -122,29 +120,11 @@
             this.register_btn.UseVisualStyleBackColor = true;
             this.register_btn.Click += new System.EventHandler(this.register_btn_Click);
             // 
-            // name_box
-            // 
-            this.name_box.Location = new System.Drawing.Point(76, 166);
-            this.name_box.Name = "name_box";
-            this.name_box.Size = new System.Drawing.Size(118, 20);
-            this.name_box.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 169);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Name";
-            // 
             // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 298);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.name_box);
+            this.ClientSize = new System.Drawing.Size(284, 271);
             this.Controls.Add(this.register_btn);
             this.Controls.Add(this.jobseeker_rdbtn);
             this.Controls.Add(this.employer_rdbtn);
@@ -173,7 +153,5 @@
         private System.Windows.Forms.RadioButton employer_rdbtn;
         private System.Windows.Forms.RadioButton jobseeker_rdbtn;
         private System.Windows.Forms.Button register_btn;
-        private System.Windows.Forms.TextBox name_box;
-        private System.Windows.Forms.Label label4;
     }
 }

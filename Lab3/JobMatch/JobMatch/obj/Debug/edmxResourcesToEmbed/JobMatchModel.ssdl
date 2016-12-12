@@ -5,7 +5,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -25,8 +24,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Employer_Id" Type="int" />
-    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="Employer_Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="JobDescription" Type="nvarchar" MaxLength="50" />
     <Property Name="EducationRequirements" Type="nvarchar" MaxLength="50" />
     <Property Name="AditionalRequirements" Type="nvarchar" MaxLength="50" />
@@ -38,7 +38,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="JobSeekerRates">
@@ -54,6 +53,7 @@
       <PropertyRef Name="JobSeeker_Id" />
     </Key>
     <Property Name="JobSeeker_Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Education" Type="nvarchar" MaxLength="50" />
     <Property Name="ShortDescription" Type="nvarchar" MaxLength="50" />
@@ -105,7 +105,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Job_Employer">
-    <End Role="Employer" Type="Self.Employer" Multiplicity="0..1">
+    <End Role="Employer" Type="Self.Employer" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Job" Type="Self.Job" Multiplicity="*" />

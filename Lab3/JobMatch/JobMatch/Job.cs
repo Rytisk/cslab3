@@ -22,7 +22,8 @@ namespace JobMatch
         }
     
         public int Id { get; set; }
-        public Nullable<int> Employer_Id { get; set; }
+        public int Employer_Id { get; set; }
+        public string Name { get; set; }
         public string Position { get; set; }
         public string JobDescription { get; set; }
         public string EducationRequirements { get; set; }

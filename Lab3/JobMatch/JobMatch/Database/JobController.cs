@@ -26,11 +26,8 @@ namespace JobMatch.Database
         {
             using(JobMatchEntities context = new JobMatchEntities())
             {
-                if(context.Employer.Any(x=>x.Id == obj.Employer_Id))
-                {
                     context.Job.Add(obj);
                     context.SaveChanges();
-                }
             }
         }
 
@@ -38,7 +35,7 @@ namespace JobMatch.Database
         {
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                return context.Job.Include("Employer").Include("JobSeeker").SingleOrDefault(x => x.Id == id);
+                return context.Job.Include("Employer").Include("JobSeeker").Include("RequiredSkill").SingleOrDefault(x => x.Id == id);
             }
         }
 
@@ -57,6 +54,14 @@ namespace JobMatch.Database
                     job.Position = obj.Position;
                     context.SaveChanges();
                 }
+            }
+        }
+
+        public List<Job> GetJobs()
+        {
+            using(JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.Job.Include("Employer").Include("JobSeeker").Include("RequiredSkill").ToList();
             }
         }
     }

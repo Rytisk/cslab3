@@ -48,11 +48,18 @@ namespace JobMatch.Database
                 if (jobSeeker != null)
                 {
                     jobSeeker.Email = obj.Email;
-                    jobSeeker.FirstName = obj.FirstName;
                     jobSeeker.Password = obj.Password;
                     jobSeeker.Username = obj.Username;
                     context.SaveChanges();
                 }
+            }
+        }
+
+        public List<JobSeeker> GetJobSeekers()
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.JobSeeker.Include("Job").Include("Profile").ToList();
             }
         }
     }
