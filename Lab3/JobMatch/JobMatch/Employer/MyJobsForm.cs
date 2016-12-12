@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JobMatch.Database;
+using System.Data.SqlClient;
 
 namespace JobMatch
 {
@@ -22,24 +24,28 @@ namespace JobMatch
 
         private void MyJobsForm_Load(object sender, EventArgs e)
         {
-            dataGridView1.CellClick += DataGridView_ButtonClick;                                                                         //Load Existing Jobs from DB implement row insertion
+            dataGridView1.CellClick += DataGridView_ButtonClick;
+            RefreshData();
+        }
+        private void RefreshData()
+        {
+            jobTableAdapter.FillBy(findJobDBDataSet.Job, _myId);
+            dataGridView1.CellClick += DataGridView_ButtonClick;
+
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                r.Cells[0].Value = "Software engineer";                                 //DATA FROM DATABASE
-                r.Cells[1].Value = "Edit";
                 r.Cells[2].Value = "Delete";
             }
         }
 
         private void DataGridView_ButtonClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dataGridView1.Columns["edit_btn_column"].Index)  //Still need to check which row
-            {
-                Console.WriteLine("edit clicked");
-            }
             if(e.ColumnIndex == dataGridView1.Columns["delete_btn_column"].Index)
             {
-                Console.WriteLine("delete clicked");
+                var row = dataGridView1.Rows[e.RowIndex];
+                int id = Convert.ToInt32(row.Cells[3].Value);
+                JobController jobController = new JobController();
+                jobController.Delete(id);
             }
         }
 
@@ -55,6 +61,11 @@ namespace JobMatch
             JobRegistration jbreg = new JobRegistration(_myId);
             jbreg.ShowDialog(this);
             Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

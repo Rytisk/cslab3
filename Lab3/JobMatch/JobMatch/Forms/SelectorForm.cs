@@ -21,9 +21,6 @@ namespace JobMatch
         List<JobSeeker> _jobSeekers;
         List<Job> _jobs;
         DBHandler dbhandler = new DBHandler();
-        private int employerIndex = 0;
-        private int jobSeekerIndex = 0;
-        //  List<EmployerDataSelector> employers;
         Type _userType;
 
         public SelectorForm(Type userType)

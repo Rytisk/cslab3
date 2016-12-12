@@ -116,6 +116,11 @@
     <Compile Include="Employer\RatedEmployees.Designer.cs">
       <DependentUpon>RatedEmployees.cs</DependentUpon>
     </Compile>
+    <Compile Include="FindJobDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Job.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
@@ -229,6 +234,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\RegisterUser.resx">
       <DependentUpon>RegisterUser.cs</DependentUpon>
@@ -240,6 +246,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>JobMatchModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="FindJobDBDataSet.xsc">
+      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FindJobDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FindJobDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FindJobDBDataSet.xss">
+      <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="JobMatchModel.edmx.diagram">
       <DependentUpon>JobMatchModel.edmx</DependentUpon>
     </None>
@@ -288,6 +305,10 @@
       <DependentUpon>JobMatchModel.edmx</DependentUpon>
       <LastGenOutput>JobMatchModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\refresh_img3.png" />
+    <None Include="Resources\refresh_img2.png" />
+    <None Include="Resources\refresh_img1.png" />
+    <None Include="Resources\refresh_img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
