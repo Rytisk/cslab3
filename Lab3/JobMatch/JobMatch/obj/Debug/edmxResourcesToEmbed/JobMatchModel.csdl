@@ -5,7 +5,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -21,7 +20,6 @@
     <Property Name="Employer_Id" Type="Int32" Nullable="false" />
     <Property Name="JobSeeker_Id" Type="Int32" Nullable="false" />
     <Property Name="Job_Id" Type="Int32" Nullable="false" />
-    <Property Name="Rate" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Employer" Relationship="Self.FK_EmployerRates_Employer" FromRole="EmployerRates" ToRole="Employer" />
     <NavigationProperty Name="Profile" Relationship="Self.FK_EmployerRates_Profile" FromRole="EmployerRates" ToRole="Profile" />
   </EntityType>
@@ -30,14 +28,15 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Employer_Id" Type="Int32" />
-    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employer_Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="JobDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="EducationRequirements" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="AditionalRequirements" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Employer" Relationship="Self.FK_Job_Employer" FromRole="Job" ToRole="Employer" />
-    <NavigationProperty Name="JobSeekerRates" Relationship="Self.FK_JobSeekerRates_Job" FromRole="Job" ToRole="JobSeekerRates" />
     <NavigationProperty Name="RequiredSkill" Relationship="Self.FK_RequiredSkill_Job" FromRole="Job" ToRole="RequiredSkill" />
+    <NavigationProperty Name="JobSeeker" Relationship="Self.JobSeekerRates" FromRole="Job" ToRole="JobSeeker" />
   </EntityType>
   <EntityType Name="JobSeeker">
     <Key>
@@ -46,27 +45,16 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="JobSeekerRates" Relationship="Self.FK_JobSeekerRates_JobSeeker" FromRole="JobSeeker" ToRole="JobSeekerRates" />
     <NavigationProperty Name="Profile" Relationship="Self.FK_Profile_JobSeeker" FromRole="JobSeeker" ToRole="Profile" />
-  </EntityType>
-  <EntityType Name="JobSeekerRates">
-    <Key>
-      <PropertyRef Name="JobSeeker_Id" />
-      <PropertyRef Name="Job_Id" />
-    </Key>
-    <Property Name="JobSeeker_Id" Type="Int32" Nullable="false" />
-    <Property Name="Job_Id" Type="Int32" Nullable="false" />
-    <Property Name="Rate" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Job" Relationship="Self.FK_JobSeekerRates_Job" FromRole="JobSeekerRates" ToRole="Job" />
-    <NavigationProperty Name="JobSeeker" Relationship="Self.FK_JobSeekerRates_JobSeeker" FromRole="JobSeekerRates" ToRole="JobSeeker" />
+    <NavigationProperty Name="Job" Relationship="Self.JobSeekerRates" FromRole="JobSeeker" ToRole="Job" />
   </EntityType>
   <EntityType Name="Profile">
     <Key>
       <PropertyRef Name="JobSeeker_Id" />
     </Key>
     <Property Name="JobSeeker_Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ShortDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -95,7 +83,9 @@
     <NavigationProperty Name="Profile" Relationship="Self.FK_Skill_Profile" FromRole="Skill" ToRole="Profile" />
   </EntityType>
   <Association Name="FK_EmployerRates_Employer">
-    <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
+    <End Role="Employer" Type="Self.Employer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="EmployerRates" Type="Self.EmployerRates" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employer">
@@ -107,7 +97,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Job_Employer">
-    <End Role="Employer" Type="Self.Employer" Multiplicity="0..1" />
+    <End Role="Employer" Type="Self.Employer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Job" Type="Self.Job" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employer">
@@ -119,7 +111,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_EmployerRates_Profile">
-    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="EmployerRates" Type="Self.EmployerRates" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Profile">
@@ -130,20 +124,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JobSeekerRates_Job">
-    <End Role="Job" Type="Self.Job" Multiplicity="1" />
-    <End Role="JobSeekerRates" Type="Self.JobSeekerRates" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Job">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="JobSeekerRates">
-        <PropertyRef Name="Job_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_RequiredSkill_Job">
-    <End Role="Job" Type="Self.Job" Multiplicity="1" />
+    <End Role="Job" Type="Self.Job" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="RequiredSkill" Type="Self.RequiredSkill" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Job">
@@ -154,20 +138,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JobSeekerRates_JobSeeker">
-    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1" />
-    <End Role="JobSeekerRates" Type="Self.JobSeekerRates" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="JobSeeker">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="JobSeekerRates">
-        <PropertyRef Name="JobSeeker_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Profile_JobSeeker">
-    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1" />
+    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="JobSeeker">
@@ -179,7 +153,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Skill_Profile">
-    <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+    <End Role="Profile" Type="Self.Profile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Profile">
@@ -190,12 +166,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="JobSeekerRates">
+    <End Role="Job" Type="Self.Job" Multiplicity="*" />
+    <End Role="JobSeeker" Type="Self.JobSeeker" Multiplicity="*" />
+  </Association>
   <EntityContainer Name="JobMatchEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Employer" EntityType="Self.Employer" />
     <EntitySet Name="EmployerRates" EntityType="Self.EmployerRates" />
     <EntitySet Name="Job" EntityType="Self.Job" />
     <EntitySet Name="JobSeeker" EntityType="Self.JobSeeker" />
-    <EntitySet Name="JobSeekerRates" EntityType="Self.JobSeekerRates" />
     <EntitySet Name="Profile" EntityType="Self.Profile" />
     <EntitySet Name="RequiredSkill" EntityType="Self.RequiredSkill" />
     <EntitySet Name="Skill" EntityType="Self.Skill" />
@@ -211,17 +190,9 @@
       <End Role="Profile" EntitySet="Profile" />
       <End Role="EmployerRates" EntitySet="EmployerRates" />
     </AssociationSet>
-    <AssociationSet Name="FK_JobSeekerRates_Job" Association="Self.FK_JobSeekerRates_Job">
-      <End Role="Job" EntitySet="Job" />
-      <End Role="JobSeekerRates" EntitySet="JobSeekerRates" />
-    </AssociationSet>
     <AssociationSet Name="FK_RequiredSkill_Job" Association="Self.FK_RequiredSkill_Job">
       <End Role="Job" EntitySet="Job" />
       <End Role="RequiredSkill" EntitySet="RequiredSkill" />
-    </AssociationSet>
-    <AssociationSet Name="FK_JobSeekerRates_JobSeeker" Association="Self.FK_JobSeekerRates_JobSeeker">
-      <End Role="JobSeeker" EntitySet="JobSeeker" />
-      <End Role="JobSeekerRates" EntitySet="JobSeekerRates" />
     </AssociationSet>
     <AssociationSet Name="FK_Profile_JobSeeker" Association="Self.FK_Profile_JobSeeker">
       <End Role="JobSeeker" EntitySet="JobSeeker" />
@@ -230,6 +201,10 @@
     <AssociationSet Name="FK_Skill_Profile" Association="Self.FK_Skill_Profile">
       <End Role="Profile" EntitySet="Profile" />
       <End Role="Skill" EntitySet="Skill" />
+    </AssociationSet>
+    <AssociationSet Name="JobSeekerRates" Association="Self.JobSeekerRates">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="JobSeeker" EntitySet="JobSeeker" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

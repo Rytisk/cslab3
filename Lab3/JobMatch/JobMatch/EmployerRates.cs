@@ -17,7 +17,6 @@ namespace JobMatch
         public int Employer_Id { get; set; }
         public int JobSeeker_Id { get; set; }
         public int Job_Id { get; set; }
-        public bool Rate { get; set; }
     
         public virtual Employer Employer { get; set; }
         public virtual Profile Profile { get; set; }

@@ -10,15 +10,6 @@ namespace JobMatch.Database
     class EmployerController : IController<Employer>
     {
 
-        public void Insert(Employer obj)
-        {
-            using(JobMatchEntities context = new JobMatchEntities())
-            {
-                context.Employer.Add(obj);
-                context.SaveChanges();
-            }
-        }
-
         public void Delete(int id)
         {
             Employer employer = null;
@@ -33,14 +24,21 @@ namespace JobMatch.Database
             }
         }
 
-        public Employer Select(int id)
+        public void Insert(Employer obj)
         {
-            Employer emp = null;
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                emp = context.Employer.FirstOrDefault(x => x.Id == id);
+                context.Employer.Add(obj);
+                context.SaveChanges();
             }
-            return emp;
+        }
+
+        public Employer Select(int id)
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.Employer.Include("Job").Include("EmployerRates").SingleOrDefault(x => x.Id == id);
+            }
         }
 
         public void Update(Employer obj)
@@ -48,15 +46,21 @@ namespace JobMatch.Database
             Employer emp = null;
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                emp = context.Employer.FirstOrDefault(x => x.Id == obj.Id);
+                emp = context.Employer.SingleOrDefault(x => x.Id == obj.Id);
                 if(emp != null)
                 {
                     emp.Email = obj.Email;
-                    emp.Name = obj.Name;
                     emp.Password = obj.Password;
                     emp.Username = obj.Username;
                     context.SaveChanges();
                 }
+            }
+        }
+        public List<Employer> GetEmployers()
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.Employer.Include("Job").Include("EmployerRates").ToList();
             }
         }
     }

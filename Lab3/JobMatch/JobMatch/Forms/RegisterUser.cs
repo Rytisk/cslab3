@@ -30,7 +30,6 @@ namespace JobMatch
             {
                 Employer emp = new Employer()
                 {
-                    Name = name_box.Text.ToString(),
                     Username = username_box.Text.ToString(),
                     Password = password_box.Text.ToString(),
                     Email = email_box.Text.ToString()

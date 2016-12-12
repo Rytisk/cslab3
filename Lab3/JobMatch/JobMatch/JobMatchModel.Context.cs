@@ -29,7 +29,6 @@ namespace JobMatch
         public virtual DbSet<EmployerRates> EmployerRates { get; set; }
         public virtual DbSet<Job> Job { get; set; }
         public virtual DbSet<JobSeeker> JobSeeker { get; set; }
-        public virtual DbSet<JobSeekerRates> JobSeekerRates { get; set; }
         public virtual DbSet<Profile> Profile { get; set; }
         public virtual DbSet<RequiredSkill> RequiredSkill { get; set; }
         public virtual DbSet<Skill> Skill { get; set; }

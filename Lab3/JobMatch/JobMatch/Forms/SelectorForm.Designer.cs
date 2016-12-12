@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.no_btn = new System.Windows.Forms.Button();
+            this.yes_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -41,32 +41,33 @@
             this.panel1.Size = new System.Drawing.Size(540, 610);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // no_btn
             // 
-            this.button1.Location = new System.Drawing.Point(35, 625);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 25);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "No";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.no_btn.Location = new System.Drawing.Point(35, 625);
+            this.no_btn.Name = "no_btn";
+            this.no_btn.Size = new System.Drawing.Size(110, 25);
+            this.no_btn.TabIndex = 1;
+            this.no_btn.Text = "No";
+            this.no_btn.UseVisualStyleBackColor = true;
+            this.no_btn.Click += new System.EventHandler(this.no_btn_Click);
             // 
-            // button2
+            // yes_btn
             // 
-            this.button2.Location = new System.Drawing.Point(400, 625);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 25);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Yes";
-            this.button2.UseVisualStyleBackColor = true;
+            this.yes_btn.Location = new System.Drawing.Point(400, 625);
+            this.yes_btn.Name = "yes_btn";
+            this.yes_btn.Size = new System.Drawing.Size(110, 25);
+            this.yes_btn.TabIndex = 2;
+            this.yes_btn.Text = "Yes";
+            this.yes_btn.UseVisualStyleBackColor = true;
+            this.yes_btn.Click += new System.EventHandler(this.yes_btn_Click);
             // 
             // SelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 671);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.yes_btn);
+            this.Controls.Add(this.no_btn);
             this.Controls.Add(this.panel1);
             this.Name = "SelectorForm";
             this.Text = "SelectorForm";
@@ -78,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button no_btn;
+        private System.Windows.Forms.Button yes_btn;
     }
 }
