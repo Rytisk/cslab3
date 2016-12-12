@@ -12,8 +12,11 @@ namespace JobMatch
 {
     public partial class EmployerMenu : Form
     {
-        public EmployerMenu()
+        private int _myId;
+
+        public EmployerMenu(int Id)
         {
+            _myId = Id;
             InitializeComponent();
         }
 
@@ -33,7 +36,7 @@ namespace JobMatch
         private void button3_Click(object sender, EventArgs e)
         {
             Hide();
-            MyJobsForm myjobsForm = new MyJobsForm();
+            MyJobsForm myjobsForm = new MyJobsForm(_myId);
             myjobsForm.ShowDialog(this);
             Show();
         }

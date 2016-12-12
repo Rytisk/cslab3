@@ -30,13 +30,24 @@ namespace JobMatch
             {
                 Employer emp = new Employer()
                 {
-                    Username = username_box.Text.ToString(),
-                    Password = password_box.Text.ToString(),
-                    Email = email_box.Text.ToString()
+                    Username = username_box.Text,
+                    Password = password_box.Text,
+                    Email = email_box.Text
                 };
                 EmployerController empController = new EmployerController();
                 empController.Insert(emp);
 
+            }
+            else if (jobseeker_rdbtn.Checked)
+            {
+                JobSeeker jobSeeker = new JobSeeker()
+                {
+                    Username = username_box.Text,
+                    Password = password_box.Text,
+                    Email = email_box.Text
+                };
+                JobSeekerController jobSeekerController = new JobSeekerController();
+                jobSeekerController.Insert(jobSeeker);
             }
             Dispose();
         }

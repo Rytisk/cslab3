@@ -12,8 +12,11 @@ namespace JobMatch
 {
     public partial class MyJobsForm : Form
     {
-        public MyJobsForm()
+        private int _myId;
+
+        public MyJobsForm(int Id)
         {
+            _myId = Id;
             InitializeComponent();
         }
 
