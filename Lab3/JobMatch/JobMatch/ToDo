@@ -1,1 +1,2 @@
-﻿Change DB so required skills and skills doesnt habe experience column
+﻿Run work with Database on another Task/Thread
+Write .Include(*relatioship*) to Selects in Controllers.

@@ -74,8 +74,10 @@
   <ItemGroup>
     <Compile Include="Database\EmployerController.cs" />
     <Compile Include="Database\IController.cs" />
+    <Compile Include="Database\JobController.cs" />
     <Compile Include="Database\JobSeekerController.cs" />
-    <Compile Include="DBHandler.cs" />
+    <Compile Include="Database\ProfileController.cs" />
+    <Compile Include="Database\DBHandler.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
@@ -131,9 +133,6 @@
       <DependentUpon>JobMatchModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="JobSeeker.cs">
-      <DependentUpon>JobMatchModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JobSeekerRates.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="JobSeeker\RatedJobs.cs">

@@ -17,8 +17,8 @@ namespace JobMatch
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Job()
         {
-            this.JobSeekerRates = new HashSet<JobSeekerRates>();
             this.RequiredSkill = new HashSet<RequiredSkill>();
+            this.JobSeeker = new HashSet<JobSeeker>();
         }
     
         public int Id { get; set; }
@@ -30,8 +30,8 @@ namespace JobMatch
     
         public virtual Employer Employer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobSeekerRates> JobSeekerRates { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequiredSkill> RequiredSkill { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<JobSeeker> JobSeeker { get; set; }
     }
 }

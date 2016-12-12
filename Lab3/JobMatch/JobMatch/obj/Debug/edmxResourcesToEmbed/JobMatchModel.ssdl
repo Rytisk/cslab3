@@ -19,7 +19,6 @@
     <Property Name="Employer_Id" Type="int" Nullable="false" />
     <Property Name="JobSeeker_Id" Type="int" Nullable="false" />
     <Property Name="Job_Id" Type="int" Nullable="false" />
-    <Property Name="Rate" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Job">
     <Key>
@@ -49,7 +48,6 @@
     </Key>
     <Property Name="JobSeeker_Id" Type="int" Nullable="false" />
     <Property Name="Job_Id" Type="int" Nullable="false" />
-    <Property Name="Rate" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Profile">
     <Key>

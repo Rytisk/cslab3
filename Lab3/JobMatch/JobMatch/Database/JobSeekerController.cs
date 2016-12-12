@@ -8,15 +8,6 @@ namespace JobMatch.Database
 {
     class JobSeekerController : IController<JobSeeker>
     {
-        public void Insert(JobSeeker obj)
-        {
-            using (JobMatchEntities context = new JobMatchEntities())
-            {
-                context.JobSeeker.Add(obj);
-                context.SaveChanges();
-            }
-        }
-
         public void Delete(int id)
         {
             JobSeeker jobSeeker = null;
@@ -31,16 +22,21 @@ namespace JobMatch.Database
             }
         }
 
-        public JobSeeker Select(int id)
+        public void Insert(JobSeeker obj)
         {
-            JobSeeker jobSeeker = null;
-
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                jobSeeker = context.JobSeeker.FirstOrDefault(x => x.Id == id);
+                context.JobSeeker.Add(obj);
+                context.SaveChanges();
             }
+        }
 
-            return jobSeeker;
+        public JobSeeker Select(int id)
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.JobSeeker.Include("Job").Include("Profile").SingleOrDefault(x => x.Id == id);
+            }
         }
 
         public void Update(JobSeeker obj)
@@ -48,7 +44,7 @@ namespace JobMatch.Database
             JobSeeker jobSeeker = null;
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                jobSeeker = context.JobSeeker.FirstOrDefault(x => x.Id == obj.Id);
+                jobSeeker = context.JobSeeker.SingleOrDefault(x => x.Id == obj.Id);
                 if (jobSeeker != null)
                 {
                     jobSeeker.Email = obj.Email;
