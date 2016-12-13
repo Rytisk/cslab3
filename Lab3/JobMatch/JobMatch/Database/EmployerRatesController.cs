@@ -38,5 +38,21 @@ namespace JobMatch.Database
                 return context.EmployerRates.Any(x => x.Employer_Id == employer_Id && x.JobSeeker_Id == jobSeeker_Id);
             }
         }
+
+        public bool ExistsRateByJob(int job_id, int jobSeeker_Id)
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.EmployerRates.Any(x => x.Job_Id == job_id && x.JobSeeker_Id == jobSeeker_Id);
+            }
+        }
+
+        public List<EmployerRates> GetRates()
+        {
+            using(JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.EmployerRates.ToList();
+            }
+        }
     }
 }

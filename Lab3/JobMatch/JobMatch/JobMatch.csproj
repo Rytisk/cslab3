@@ -200,6 +200,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RatedJobsData.cs" />
     <Compile Include="RequiredSkill.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>

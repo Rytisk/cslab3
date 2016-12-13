@@ -43,7 +43,7 @@ namespace JobMatch
         private void button2_Click(object sender, EventArgs e)
         {
             Hide();
-            RatedJobs ratedJobsForm = new RatedJobs();
+            RatedJobs ratedJobsForm = new RatedJobs(_myId);
             ratedJobsForm.ShowDialog(this);
             Show();
         }
