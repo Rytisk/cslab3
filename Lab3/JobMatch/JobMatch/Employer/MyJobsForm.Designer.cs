@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyJobsForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.add_job_btn = new System.Windows.Forms.Button();
-            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.findJobDBDataSet = new JobMatch.FindJobDBDataSet();
-            this.jobTableAdapter = new JobMatch.FindJobDBDataSetTableAdapters.JobTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete_btn_column = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employer_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.findJobDBDataSet = new JobMatch.FindJobDBDataSet();
+            this.add_job_btn = new System.Windows.Forms.Button();
+            this.jobTableAdapter = new JobMatch.FindJobDBDataSetTableAdapters.JobTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.findJobDBDataSet)).BeginInit();
@@ -63,40 +64,6 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(425, 407);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // add_job_btn
-            // 
-            this.add_job_btn.Location = new System.Drawing.Point(172, 455);
-            this.add_job_btn.Name = "add_job_btn";
-            this.add_job_btn.Size = new System.Drawing.Size(126, 23);
-            this.add_job_btn.TabIndex = 1;
-            this.add_job_btn.Text = "Add a new Job";
-            this.add_job_btn.UseVisualStyleBackColor = true;
-            this.add_job_btn.Click += new System.EventHandler(this.add_job_btn_Click);
-            // 
-            // jobBindingSource
-            // 
-            this.jobBindingSource.DataMember = "Job";
-            this.jobBindingSource.DataSource = this.findJobDBDataSet;
-            // 
-            // findJobDBDataSet
-            // 
-            this.findJobDBDataSet.DataSetName = "FindJobDBDataSet";
-            this.findJobDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // jobTableAdapter
-            // 
-            this.jobTableAdapter.ClearBeforeFill = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::JobMatch.Properties.Resources.refresh_img3;
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -134,6 +101,40 @@
             this.Employer_Id.Name = "Employer_Id";
             this.Employer_Id.Visible = false;
             // 
+            // jobBindingSource
+            // 
+            this.jobBindingSource.DataMember = "Job";
+            this.jobBindingSource.DataSource = this.findJobDBDataSet;
+            // 
+            // findJobDBDataSet
+            // 
+            this.findJobDBDataSet.DataSetName = "FindJobDBDataSet";
+            this.findJobDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // add_job_btn
+            // 
+            this.add_job_btn.Location = new System.Drawing.Point(172, 455);
+            this.add_job_btn.Name = "add_job_btn";
+            this.add_job_btn.Size = new System.Drawing.Size(126, 23);
+            this.add_job_btn.TabIndex = 1;
+            this.add_job_btn.Text = "Add a new Job";
+            this.add_job_btn.UseVisualStyleBackColor = true;
+            this.add_job_btn.Click += new System.EventHandler(this.add_job_btn_Click);
+            // 
+            // jobTableAdapter
+            // 
+            this.jobTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(13, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 25);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // MyJobsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,11 +160,11 @@
         private FindJobDBDataSet findJobDBDataSet;
         private System.Windows.Forms.BindingSource jobBindingSource;
         private FindJobDBDataSetTableAdapters.JobTableAdapter jobTableAdapter;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn delete_btn_column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Employer_Id;
+        private System.Windows.Forms.Button button1;
     }
 }

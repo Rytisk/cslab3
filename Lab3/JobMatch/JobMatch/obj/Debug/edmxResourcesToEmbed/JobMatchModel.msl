@@ -17,6 +17,7 @@
           <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
           <ScalarProperty Name="JobSeeker_Id" ColumnName="JobSeeker_Id" />
           <ScalarProperty Name="Job_Id" ColumnName="Job_Id" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -40,6 +41,15 @@
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSeekerRates">
+      <EntityTypeMapping TypeName="FindJobDBModel.JobSeekerRates">
+        <MappingFragment StoreEntitySet="JobSeekerRates">
+          <ScalarProperty Name="JobSeeker_Id" ColumnName="JobSeeker_Id" />
+          <ScalarProperty Name="Job_Id" ColumnName="Job_Id" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -72,13 +82,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="JobSeekerRates" TypeName="FindJobDBModel.JobSeekerRates" StoreEntitySet="JobSeekerRates">
-      <EndProperty Name="Job">
-        <ScalarProperty Name="Id" ColumnName="Job_Id" />
-      </EndProperty>
-      <EndProperty Name="JobSeeker">
-        <ScalarProperty Name="Id" ColumnName="JobSeeker_Id" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

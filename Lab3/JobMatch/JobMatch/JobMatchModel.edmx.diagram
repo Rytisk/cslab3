@@ -4,21 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6d55983fcd1048ae8c0f0f39498f46cb" Name="Diagram1">
-        <EntityTypeShape EntityType="FindJobDBModel.Employer" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="FindJobDBModel.EmployerRates" Width="1.5" PointX="9.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FindJobDBModel.Job" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="FindJobDBModel.JobSeeker" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FindJobDBModel.Profile" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="FindJobDBModel.RequiredSkill" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="FindJobDBModel.Skill" Width="1.5" PointX="9.75" PointY="6" IsExpanded="true" />
+      <Diagram DiagramId="b146cd37667142f49ae9cd559bf6bcd8" Name="Diagram1">
+        <EntityTypeShape EntityType="FindJobDBModel.Employer" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.EmployerRates" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.Job" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.JobSeeker" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.JobSeekerRates" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.Profile" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.RequiredSkill" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FindJobDBModel.Skill" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
         <AssociationConnector Association="FindJobDBModel.FK_EmployerRates_Employer" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_Job_Employer" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_EmployerRates_Profile" ManuallyRouted="false" />
+        <AssociationConnector Association="FindJobDBModel.FK_JobSeekerRates_Job" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_RequiredSkill_Job" ManuallyRouted="false" />
+        <AssociationConnector Association="FindJobDBModel.FK_JobSeekerRates_JobSeeker" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_Profile_JobSeeker" ManuallyRouted="false" />
         <AssociationConnector Association="FindJobDBModel.FK_Skill_Profile" ManuallyRouted="false" />
-        <AssociationConnector Association="FindJobDBModel.JobSeekerRates" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

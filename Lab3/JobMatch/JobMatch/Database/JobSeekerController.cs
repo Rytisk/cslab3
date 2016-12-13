@@ -35,7 +35,7 @@ namespace JobMatch.Database
         {
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                return context.JobSeeker.Include("Job").Include("Profile").SingleOrDefault(x => x.Id == id);
+                return context.JobSeeker.Include("Profile").Include("JobSeekerRates").SingleOrDefault(x => x.Id == id);
             }
         }
 
@@ -67,7 +67,7 @@ namespace JobMatch.Database
         {
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                return context.JobSeeker.Include("Job").Include("Profile").ToList();
+                return context.JobSeeker.Include("JobSeekerRates").Include("Profile").ToList();
             }
         }
     }

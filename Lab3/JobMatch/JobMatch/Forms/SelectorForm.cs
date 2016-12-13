@@ -22,10 +22,14 @@ namespace JobMatch
         List<Job> _jobs;
         DBHandler dbhandler = new DBHandler();
         Type _userType;
+        Job _job;
+        JobSeeker _jobSeeker;
+        private int _myId;
 
-        public SelectorForm(Type userType)
+        public SelectorForm(Type userType, int Id)
         {
             _userType = userType;
+            _myId = Id;
             InitializeComponent();
         }
 
@@ -59,22 +63,38 @@ namespace JobMatch
 
         private void EmployersView()
         {
+            
             try
             {
-                var jobSeeker = _jobSeekers.Take(1).Single();
-                _employerControl.JobSeekerName = string.Format("{0} {1}", jobSeeker.Profile.FirstName, jobSeeker.Profile.LastName);
-                _employerControl.ContactData = jobSeeker.Profile.ContactData;
-                _employerControl.ShortDescription = jobSeeker.Profile.ShortDescription;
-                _employerControl.WorkExperience = jobSeeker.Profile.WorkExperience;
-                _employerControl.Education = jobSeeker.Profile.Education;
+                EmployerRatesController empRatesContr = new EmployerRatesController();
+                while (empRatesContr.ExistsRate(_myId, _jobSeekers.Take(1).Single().Id))
+                {
+                    _jobSeekers = _jobSeekers.Skip(1).ToList();
+                }
+                _jobSeeker = _jobSeekers.Take(1).Single();
+                
+                _employerControl.JobSeekerName = string.Format("{0} {1}", _jobSeeker.Profile.FirstName, _jobSeeker.Profile.LastName);
+                _employerControl.ContactData = _jobSeeker.Profile.ContactData;
+                _employerControl.ShortDescription = _jobSeeker.Profile.ShortDescription;
+                _employerControl.WorkExperience = _jobSeeker.Profile.WorkExperience;
+                _employerControl.Education = _jobSeeker.Profile.Education;
 
-                string query = string.Format("select skill from skill where profile_Id = '{0}'", jobSeeker.Profile.JobSeeker_Id);
+                string query = string.Format("select skill from skill where profile_Id = '{0}'", _jobSeeker.Profile.JobSeeker_Id);
                 var skills = dbhandler.ReadQuery(query, _connectionString);
                 foreach (DataRow row in skills.Rows)
                 {
                     string skill = row["skill"].ToString();
                     _employerControl.Skills.Items.Add(new ListViewItem(skill));
                 }
+
+                JobController jobController = new JobController();
+                var jobs = jobController.GetJobs().Where(x=> x.Employer_Id == _myId);
+
+                foreach(Job j in jobs)
+                {
+                    _employerControl.Positions.Items.Add(j);        //j.Position
+                }
+
                 _jobSeekers = _jobSeekers.Skip(1).ToList();
             }
             catch(Exception ex)
@@ -87,17 +107,22 @@ namespace JobMatch
         }
 
         private void JobSeekersView()
-        {
+        {      
             try
             {
-                var job = _jobs.Take(1).Single();
-                _jobSeekerControl.NameOfCompany = job.Name;
-                _jobSeekerControl.JobPosition = job.Position;
-                _jobSeekerControl.ShortJobDescription = job.JobDescription;
-                _jobSeekerControl.Education = job.EducationRequirements;
-                _jobSeekerControl.AditionalRequirements = job.AditionalRequirements;
+                JobSeekerRatesController jobSeekerRatesContr = new JobSeekerRatesController();
+                while (jobSeekerRatesContr.ExistsRate(_myId, _jobs.Take(1).Single().Id))
+                {
+                    _jobs = _jobs.Skip(1).ToList();
+                }
+                _job = _jobs.Take(1).Single();
+                _jobSeekerControl.NameOfCompany = _job.Name;
+                _jobSeekerControl.JobPosition = _job.Position;
+                _jobSeekerControl.ShortJobDescription = _job.JobDescription;
+                _jobSeekerControl.Education = _job.EducationRequirements;
+                _jobSeekerControl.AditionalRequirements = _job.AditionalRequirements;
 
-                string query = string.Format("select skill from RequiredSkill where job_Id = '{0}'", job.Id);
+                string query = string.Format("select skill from RequiredSkill where job_Id = '{0}'", _job.Id);
                 var reqskills = dbhandler.ReadQuery(query, _connectionString);
                 foreach (DataRow row in reqskills.Rows)
                 {
@@ -121,11 +146,53 @@ namespace JobMatch
         {
             if (_userType == Type.Employer)
             {
+                EmployerRatesController rateController = new EmployerRatesController();
+                EmployerController employerController = new EmployerController();
+                Employer emp = employerController.Select(_myId);
+
+                var jobs = _employerControl.Positions.Items;
+
+                foreach (Job j in jobs)
+                {
+                    EmployerRates rate = null;
+                    if (_employerControl.Positions.CheckedItems.Contains(j))
+                    {
+                        rate = new EmployerRates()
+                        {
+                            Employer_Id = _myId,
+                            JobSeeker_Id = _jobSeeker.Id,
+                            Job_Id = j.Id,
+                            Rate = true
+                        };
+                    }
+                    else
+                    {
+                        rate = new EmployerRates()
+                        {
+                            Employer_Id = _myId,
+                            JobSeeker_Id = _jobSeeker.Id,
+                            Job_Id = j.Id,
+                            Rate = false
+                        };
+                    }
+                    rateController.Insert(rate);
+                }
+
                 ResetEmployerViewFields();
                 EmployersView();
             }
             if(_userType == Type.JobSeeker)
             {
+                JobSeekerRatesController rateController = new JobSeekerRatesController();
+                JobSeekerController jobSeekerController = new JobSeekerController();
+                JobSeeker jobSeeker = jobSeekerController.Select(_myId);
+                JobSeekerRates rate = new JobSeekerRates()
+                {
+                    JobSeeker_Id = _myId,
+                    Job_Id = _job.Id,
+                    Rate = true
+                };
+                rateController.Insert(rate);
                 ResetJobSeekerViewFields();
                 JobSeekersView();
             }
@@ -135,11 +202,37 @@ namespace JobMatch
         {
             if (_userType == Type.Employer)
             {
+                EmployerRatesController rateController = new EmployerRatesController();
+                EmployerController employerController = new EmployerController();
+                Employer emp = employerController.Select(_myId);
+                
+                var jobs = _employerControl.Positions.Items;
+                foreach(Job j in jobs)
+                {
+                    EmployerRates rate = new EmployerRates()
+                    {
+                        Employer_Id = _myId,
+                        JobSeeker_Id = _jobSeeker.Id,
+                        Job_Id = j.Id,
+                        Rate = false
+                    };
+                    rateController.Insert(rate);
+                }
                 ResetEmployerViewFields();
                 EmployersView();
             }
             if (_userType == Type.JobSeeker)
             {
+                JobSeekerRatesController rateController = new JobSeekerRatesController();
+                JobSeekerController jobSeekerController = new JobSeekerController();
+                JobSeeker jobSeeker = jobSeekerController.Select(_myId);
+                JobSeekerRates rate = new JobSeekerRates()
+                {
+                    JobSeeker_Id = _myId,
+                    Job_Id = _job.Id,
+                    Rate = false
+                };
+                rateController.Insert(rate);
                 ResetJobSeekerViewFields();
                 JobSeekersView();
             }
@@ -153,6 +246,7 @@ namespace JobMatch
             _employerControl.WorkExperience = null;
             _employerControl.Education = null;
             _employerControl.Skills.Items.Clear();
+            _employerControl.Positions.Items.Clear();
         }
 
         private void ResetJobSeekerViewFields()

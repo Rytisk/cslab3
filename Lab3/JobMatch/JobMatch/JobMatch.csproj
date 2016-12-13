@@ -73,9 +73,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\EmployerController.cs" />
+    <Compile Include="Database\EmployerRatesController.cs" />
     <Compile Include="Database\IController.cs" />
     <Compile Include="Database\JobController.cs" />
     <Compile Include="Database\JobSeekerController.cs" />
+    <Compile Include="Database\JobSeekerRatesController.cs" />
     <Compile Include="Database\ProfileController.cs" />
     <Compile Include="Database\DBHandler.cs" />
     <Compile Include="Database\RequiredSkillController.cs" />
@@ -142,6 +144,9 @@
     <Compile Include="JobSeeker.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="JobSeekerRates.cs">
+      <DependentUpon>JobMatchModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="JobSeeker\RatedJobs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +195,12 @@
     <Compile Include="Forms\SelectorForm.Designer.cs">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RatedJobsData.cs" />
     <Compile Include="RequiredSkill.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
@@ -228,24 +239,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Forms\RegisterUser.resx">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SelectorForm.resx">
       <DependentUpon>SelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="JobMatchModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JobMatchModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="FindJobDBDataSet.xsc">
       <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
     </None>
@@ -257,6 +259,10 @@
     <None Include="FindJobDBDataSet.xss">
       <DependentUpon>FindJobDBDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="JobMatchModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JobMatchModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="JobMatchModel.edmx.diagram">
       <DependentUpon>JobMatchModel.edmx</DependentUpon>
     </None>
@@ -295,6 +301,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="JobMatchModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>JobMatchModel.edmx</DependentUpon>
@@ -305,10 +314,6 @@
       <DependentUpon>JobMatchModel.edmx</DependentUpon>
       <LastGenOutput>JobMatchModel.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\refresh_img3.png" />
-    <None Include="Resources\refresh_img2.png" />
-    <None Include="Resources\refresh_img1.png" />
-    <None Include="Resources\refresh_img.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

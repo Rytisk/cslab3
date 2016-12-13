@@ -60,6 +60,18 @@ namespace JobMatch
             }
         }
 
+        public CheckedListBox Positions
+        {
+            get
+            {
+                return jobs_checkedlist;
+            }
+            set
+            {
+                jobs_checkedlist = value;
+            }
+        }
+
         public string WorkExperience
         {
             get

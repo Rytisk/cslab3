@@ -7,38 +7,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JobMatch.Database;
 
 namespace JobMatch
 {
     public partial class RatedJobs : Form
     {
-        Image _yesImg = Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\yes_img.png");
-        Image _noImg = Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\no_img.png");
-        Image _maybeImg = Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\maybe_img.png");
 
-        public RatedJobs()
+        private int _myId;
+
+        public RatedJobs(int Id)
         {
-            _yesImg = resizeImage(_yesImg, new Size(15, 15));
-            _noImg = resizeImage(_noImg, new Size(15, 15));
-            _maybeImg = resizeImage(_maybeImg, new Size(15, 15));
+            _myId = Id;
+
             InitializeComponent();
         }
 
         private void RatedJobs_Load(object sender, EventArgs e)
         {
+            JobController jobController = new JobController();
+            var jobs = jobController.GetJobs();
+
+            JobSeekerController jobSeekerController = new JobSeekerController();
+            var seekerRates = jobSeekerController.Select(_myId);
+
+
+
+            var result = from job in jobs
+                         join rate in seekerRates.JobSeekerRates on job.Id equals rate.Job_Id
+                         select new RatedJobsData
+                         {
+                             JobPosition = job.Position,
+                             CompanyName = job.Name,
+                             YourRate = new RatedJobsData().GetImage(rate.Rate),
+                             CompanysRate =  new RatedJobsData().SetCompanysRate(job.Id, rate.JobSeeker_Id)
+                            
+                         };
+
+            dataGridView1.DataSource = result.ToList();
+
+            /*
+            
+
+
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
                 r.Cells[0].Value = "Software engineer";                                 //
                 r.Cells[1].Value = "Google";                                            //DATA FROM DATABASE
                 r.Cells[2].Value = _yesImg;                                             //
                 r.Cells[3].Value = _maybeImg;                                           //
-            }
+            }*/
         }
 
-        private static Image resizeImage(Image imgToResize, Size size)
-        {
-            return new Bitmap(imgToResize, size);
-        }
+
 
     }
 }

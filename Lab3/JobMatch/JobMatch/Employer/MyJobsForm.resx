@@ -132,10 +132,21 @@
   <metadata name="findJobDBDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="findJobDBDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="jobTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>315, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAZNJREFUOE+9lL3OAVEQhjdKQSSyzSpUCo3CXWyt05GoNTQ6IuIGFCJZiUKj2HIL
+        PxUdEXeg0UgoKIX3y5kcw/4Gke9JTrKZefeds3Nmj4If83+G6/UajUYDxWIRlUoFhmHITDAuw/P5jHQ6
+        jXA4DEVRbCsej6PZbEqlNzbDyWRiM4hGo0gmk1BV1RbP5XK43W7yLTtsOJvN+IVYLIZarYbNZkO54/GI
+        fr8PXddZk8/nKeeEDE+nE1UVwlAohO12S0kvCoUCm1qWJaNPyHA0GrFoOBxSwo/D4YBEIkHaVColo0/I
+        sF6vs6Efrz0bj8ee+vv9DuV6vVI/RDKTyciUN+12G71eD+VymQ273S5arRaWyyVpPjI0TZONXpdowW63
+        I83bn/zAOVriEMWmHpDDJ4ciWCwWrHdCkXfHZr/fyyfQXIrZdcIl5vM5VxWDXa1WebBFQWGQzWYpHoRt
+        z9PplE3FikQi0DTN9euJy8IPVxMul0vg5dDpdKTSG3dXJavVim6WUqlEOxoMBjITjK/ht/zYEPgDEIYP
+        HVp/LcgAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
