@@ -22,7 +22,7 @@ namespace JobMatch
         private void button1_Click(object sender, EventArgs e)
         {
             Hide();
-            SelectorForm slform = new SelectorForm(Type.JobSeeker);
+            SelectorForm slform = new SelectorForm(Type.JobSeeker, _myId);
             slform.ShowDialog(this);
             Show();
         }

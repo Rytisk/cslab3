@@ -1,3 +1,5 @@
 ﻿Run work with Database on another Task/Thread
 Write .Include(*relatioship*) to Selects in Controllers.
 Make input validation!!! Validate number of characters in registration text boxes.
+Sutvarkyt EmployerSelectorView su combolist. Turi but darbdaviui pasirinkimai, kokiam darbui tinkamas darbuotojas.
+	Tada keist visa logika, kad zinotu kokiam darbui yra pasirenkamas jobSeekeris. SelectorForm no ir yes buttonu nuspaudimas employer atzvilgiu.
