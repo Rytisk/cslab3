@@ -72,7 +72,7 @@ namespace JobMatch
                     _jobSeekers = _jobSeekers.Skip(1).ToList();
                 }
                 _jobSeeker = _jobSeekers.Take(1).Single();
-                
+
                 _employerControl.JobSeekerName = string.Format("{0} {1}", _jobSeeker.Profile.FirstName, _jobSeeker.Profile.LastName);
                 _employerControl.ContactData = _jobSeeker.Profile.ContactData;
                 _employerControl.ShortDescription = _jobSeeker.Profile.ShortDescription;

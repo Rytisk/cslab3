@@ -25,6 +25,8 @@ namespace JobMatch
 
         private void RatedJobs_Load(object sender, EventArgs e)
         {
+            EmployerController empController = new EmployerController();
+
             JobController jobController = new JobController();
             var jobs = jobController.GetJobs();
 
@@ -45,6 +47,16 @@ namespace JobMatch
                          };
 
             dataGridView1.DataSource = result.ToList();
+
+            var companiesOffers = from job in jobs
+                                  group job by job.Employer_Id into g
+                                  select new
+                                  {
+                                      Name = jobs.First(x => x.Employer_Id == g.Key).Name,
+                                      Count = g.Count()
+                                  };
+            dataGridView2.DataSource = companiesOffers.ToList();
+
         }
 
 
