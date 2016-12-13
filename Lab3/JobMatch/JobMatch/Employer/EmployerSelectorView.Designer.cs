@@ -40,6 +40,7 @@
             this.education_lbl = new System.Windows.Forms.Label();
             this.work_experience_box = new System.Windows.Forms.TextBox();
             this.education_box = new System.Windows.Forms.TextBox();
+            this.jobs_checkedlist = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // name_box
@@ -150,10 +151,19 @@
             this.education_box.Size = new System.Drawing.Size(217, 22);
             this.education_box.TabIndex = 16;
             // 
+            // jobs_checkedlist
+            // 
+            this.jobs_checkedlist.FormattingEnabled = true;
+            this.jobs_checkedlist.Location = new System.Drawing.Point(411, 30);
+            this.jobs_checkedlist.Name = "jobs_checkedlist";
+            this.jobs_checkedlist.Size = new System.Drawing.Size(120, 94);
+            this.jobs_checkedlist.TabIndex = 18;
+            // 
             // EmployerSelectorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.jobs_checkedlist);
             this.Controls.Add(this.education_box);
             this.Controls.Add(this.work_experience_box);
             this.Controls.Add(this.education_lbl);
@@ -187,5 +197,6 @@
         private System.Windows.Forms.Label education_lbl;
         private System.Windows.Forms.TextBox work_experience_box;
         private System.Windows.Forms.TextBox education_box;
+        private System.Windows.Forms.CheckedListBox jobs_checkedlist;
     }
 }

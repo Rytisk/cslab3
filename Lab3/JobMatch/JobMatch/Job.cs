@@ -34,5 +34,10 @@ namespace JobMatch
         public virtual ICollection<JobSeekerRates> JobSeekerRates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequiredSkill> RequiredSkill { get; set; }
+
+        public override string ToString()
+        {
+            return Position;
+        }
     }
 }

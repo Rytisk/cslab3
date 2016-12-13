@@ -30,5 +30,13 @@ namespace JobMatch.Database
                 }
             }
         }
+
+        public bool ExistsRate(int jobSeeker_id, int job_id)
+        {
+            using(JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.JobSeekerRates.Any(x => x.JobSeeker_Id == jobSeeker_id && x.Job_Id == job_id);
+            }
+        }
     }
 }

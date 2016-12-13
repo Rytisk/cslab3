@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\EmployerController.cs" />
+    <Compile Include="Database\EmployerRatesController.cs" />
     <Compile Include="Database\IController.cs" />
     <Compile Include="Database\JobController.cs" />
     <Compile Include="Database\JobSeekerController.cs" />
