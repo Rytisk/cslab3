@@ -88,6 +88,7 @@
     <Compile Include="EmployerRates.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RatedEmployeesData.cs" />
     <Compile Include="Employer\EmployerMenu.cs">
       <SubType>Form</SubType>
     </Compile>

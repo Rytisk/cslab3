@@ -45,18 +45,6 @@ namespace JobMatch
                          };
 
             dataGridView1.DataSource = result.ToList();
-
-            /*
-            
-
-
-            foreach (DataGridViewRow r in dataGridView1.Rows)
-            {
-                r.Cells[0].Value = "Software engineer";                                 //
-                r.Cells[1].Value = "Google";                                            //DATA FROM DATABASE
-                r.Cells[2].Value = _yesImg;                                             //
-                r.Cells[3].Value = _maybeImg;                                           //
-            }*/
         }
 
 

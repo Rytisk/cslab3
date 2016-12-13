@@ -8,18 +8,18 @@ using JobMatch.Database;
 
 namespace JobMatch
 {
-    class RatedJobsData
+    class RatedEmployeesData
     {
         Image _yesImg = resizeImage(Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\yes_img.png"), new Size(15, 15));
         Image _noImg = resizeImage(Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\no_img.png"), new Size(15, 15));
         Image _maybeImg = resizeImage(Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\maybe_img.png"), new Size(15, 15));
 
-        public string CompanyName
+        public string Position
         {
             get;
             set;
         }
-        public string JobPosition
+        public string JobSeekersName
         {
             get;
             set;
@@ -29,17 +29,17 @@ namespace JobMatch
             get;
             set;
         }
-        public Image CompanysRate
+        public Image JobSeekersRate
         {
             get;
             set;
         }
-        
+
 
         public Image GetImage(bool value)
         {
 
-            if(value == true)
+            if (value == true)
             {
                 return _yesImg;
             }
@@ -52,12 +52,12 @@ namespace JobMatch
 
         public Image SetCompanysRate(int job_id, int jobSeeker_id)
         {
-            EmployerRatesController empRatesController = new EmployerRatesController();
-            var empRates = empRatesController.GetRates();
+            JobSeekerRatesController jobSeekerRatesController = new JobSeekerRatesController();
+            var empRates = jobSeekerRatesController.GetRates();
 
 
             bool value;
-            if(empRatesController.ExistsRateByJob(job_id, jobSeeker_id))
+            if (jobSeekerRatesController.ExistsRateByJob(job_id, jobSeeker_id))
             {
                 value = empRates.SingleOrDefault(x => x.Job_Id == job_id && x.JobSeeker_Id == jobSeeker_id).Rate;
                 if (value == true)
@@ -71,7 +71,7 @@ namespace JobMatch
             }
 
             return _maybeImg;
-              
+
         }
 
         private static Image resizeImage(Image imgToResize, Size size)
