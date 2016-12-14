@@ -13,17 +13,11 @@ namespace JobMatch
 {
     public partial class RatedEmployees : Form
     {
-        Image _yesImg = Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\yes_img.png");
-        Image _noImg = Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\no_img.png");
-        Image _maybeImg = Image.FromFile(@"C:\Users\Acer\cslab3\Lab3\imgs\maybe_img.png");
         private int _myId;
 
         public RatedEmployees(int Id)
         {
             _myId = Id;
-            _yesImg = resizeImage(_yesImg, new Size(15, 15));
-            _noImg = resizeImage(_noImg, new Size(15, 15));
-            _maybeImg = resizeImage(_maybeImg, new Size(15, 15));
             InitializeComponent();
         }
 
@@ -49,9 +43,10 @@ namespace JobMatch
             dataGridView1.DataSource = result.ToList();
         }
 
-        private static Image resizeImage(Image imgToResize, Size size)
+        private void button1_Click(object sender, EventArgs e)
         {
-            return new Bitmap(imgToResize, size);
+            EmployerRatesController empRatesController = new EmployerRatesController();
+            empRatesController.DeleteAllRates(_myId);
         }
     }
 }

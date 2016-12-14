@@ -53,13 +53,18 @@ namespace JobMatch
                                   select new
                                   {
                                       Name = jobs.First(x => x.Employer_Id == g.Key).Name,
-                                      Count = g.Count()
+                                      Count = g.Count(),
                                   };
+            var sum = companiesOffers.Select(x => x.Count).Aggregate((y,z) => y+z);
+            label1.Text = string.Format("Number of job offers: {0}", sum);
             dataGridView2.DataSource = companiesOffers.ToList();
 
         }
 
-
-
+        private void clean_rates_btn_Click(object sender, EventArgs e)
+        {
+            JobSeekerRatesController jobSeekerRatesController = new JobSeekerRatesController();
+            jobSeekerRatesController.DeleteAllRates(_myId);
+        }
     }
 }
