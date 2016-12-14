@@ -22,12 +22,12 @@ namespace JobMatch
             InitializeComponent();            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
             {
                 type = Type.JobSeeker;
-                if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
+                if (await LoginValidation.Validate(type, username_box.Text, password_box.Text))
                 {
                     JobSeekerController jscontr = new JobSeekerController();
                     _myId = jscontr.GetIdByUsername(username_box.Text);
@@ -46,7 +46,7 @@ namespace JobMatch
             else if (radioButton2.Checked)
             {
                 type = Type.Employer;
-                if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
+                if (await LoginValidation.Validate(type, username_box.Text, password_box.Text))
                 {
                     EmployerController empcontr = new EmployerController();
                     _myId = empcontr.GetIdByUsername(username_box.Text);

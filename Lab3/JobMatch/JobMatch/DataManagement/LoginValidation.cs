@@ -9,20 +9,22 @@ namespace JobMatch
 {
     static class LoginValidation
     {
-        public static bool Validate(Type type, string username, string password)
+        public async static Task<bool> Validate(Type type, string username, string password)
         {
             using (JobMatchEntities context = new JobMatchEntities())
             {
-                if(type == Type.Employer)
+                if (type == Type.Employer)
                 {
-                    return context.Employer.Any(x => x.Username == username && x.Password == password);
+                    var res = await Task.Run(() => context.Employer.Any(x => x.Username == username && x.Password == password));
+                    return res;
                 }
                 else if(type == Type.JobSeeker)
                 {
-                    return context.JobSeeker.Any(x => x.Username == username && x.Password == password);
+                    var res = await Task.Run(() => context.JobSeeker.Any(x => x.Username == username && x.Password == password));
+                    return res;
                 }
             }
-            return false;
+            return await Task.FromResult(false);
         }
     }
 }
