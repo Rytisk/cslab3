@@ -29,5 +29,13 @@ namespace JobMatch.Database
                 context.SaveChanges();
             }
         }
+
+        public List<Skill> GetSkills(int profile_id)
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.Skill.Where(x=>x.Profile_Id == profile_id).ToList();
+            }
+        }
     }
 }

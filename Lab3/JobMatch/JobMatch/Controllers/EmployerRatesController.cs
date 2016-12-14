@@ -54,5 +54,20 @@ namespace JobMatch.Database
                 return context.EmployerRates.ToList();
             }
         }
+        public void DeleteAllRates(int employer_id)
+        {
+            using (JobMatchEntities context = new JobMatchEntities())
+            {
+                if (context.EmployerRates.Any(x=>x.Employer_Id == employer_id))
+                {
+                    var rates = context.EmployerRates.Where(x=>x.Employer_Id==employer_id);
+                    foreach(EmployerRates rate in rates)
+                    {
+                        context.EmployerRates.Remove(rate);
+                    }
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

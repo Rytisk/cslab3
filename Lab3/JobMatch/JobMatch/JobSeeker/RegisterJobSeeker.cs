@@ -22,17 +22,6 @@ namespace JobMatch
             InitializeComponent();
         }
 
-        private void Insert(Profile profile)
-        {
-            profileController.Insert(profile);
-            Dispose();
-        }
-        private void Update(Profile profile)
-        {
-            profileController.Update(profile);
-            Dispose();
-        }
-
         private void update_profile_Click(object sender, EventArgs e)
         {
             Profile profile = new Profile()
@@ -45,6 +34,12 @@ namespace JobMatch
                 ShortDescription = short_description_data.Text,
                 WorkExperience = work_experience_box.Text
             };
+
+            if (profileController.Select(_myId) != null)
+                profileController.Update(profile);
+            else if (profileController.Select(_myId) == null)
+                profileController.Insert(profile);
+
 
             SkillController skillController = new SkillController();
             var checkedskills = skills_checklist.CheckedItems;
@@ -63,10 +58,7 @@ namespace JobMatch
                 skillController.Insert(skl);
             }
 
-            if (profileController.Select(_myId) != null)
-                Update(profile);
-            else if (profileController.Select(_myId) == null)
-                Insert(profile);
+            Dispose();
         }
 
         private void RegisterJobSeeker_Load(object sender, EventArgs e)

@@ -72,22 +72,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\EmployerController.cs" />
-    <Compile Include="Database\EmployerRatesController.cs" />
-    <Compile Include="Database\IController.cs" />
-    <Compile Include="Database\JobController.cs" />
-    <Compile Include="Database\JobSeekerController.cs" />
-    <Compile Include="Database\JobSeekerRatesController.cs" />
-    <Compile Include="Database\ProfileController.cs" />
-    <Compile Include="Database\DBHandler.cs" />
-    <Compile Include="Database\RequiredSkillController.cs" />
-    <Compile Include="Database\SkillController.cs" />
+    <Compile Include="Controllers\EmployerController.cs" />
+    <Compile Include="Controllers\EmployerRatesController.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
+    <Compile Include="Controllers\JobSeekerController.cs" />
+    <Compile Include="Controllers\JobSeekerRatesController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\DBHandler.cs" />
+    <Compile Include="Controllers\RequiredSkillController.cs" />
+    <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Employer.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployerRates.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataManagement\RatedEmployeesData.cs" />
     <Compile Include="Employer\EmployerMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,7 +178,7 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginValidation.cs" />
+    <Compile Include="DataManagement\LoginValidation.cs" />
     <Compile Include="Profile.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
@@ -200,7 +201,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RatedJobsData.cs" />
+    <Compile Include="DataManagement\RatedJobsData.cs" />
     <Compile Include="RequiredSkill.cs">
       <DependentUpon>JobMatchModel.tt</DependentUpon>
     </Compile>
@@ -315,6 +316,7 @@
       <LastGenOutput>JobMatchModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

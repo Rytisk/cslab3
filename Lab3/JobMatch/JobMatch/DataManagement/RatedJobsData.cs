@@ -36,7 +36,7 @@ namespace JobMatch
         }
         
 
-        public Image GetImage(bool? value)
+        public Image GetImage(bool value)
         {
 
             if(value == true)

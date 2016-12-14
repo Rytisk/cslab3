@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobMatch.Database;
 
@@ -36,6 +29,7 @@ namespace JobMatch
                 };
                 EmployerController empController = new EmployerController();
                 empController.Insert(emp);
+                Dispose();
 
             }
             else if (jobseeker_rdbtn.Checked)
@@ -48,8 +42,13 @@ namespace JobMatch
                 };
                 JobSeekerController jobSeekerController = new JobSeekerController();
                 jobSeekerController.Insert(jobSeeker);
+                Dispose();
             }
-            Dispose();
+            else
+            {
+                MessageBox.Show("Please select a type");
+            }
+            
         }
     }
 }

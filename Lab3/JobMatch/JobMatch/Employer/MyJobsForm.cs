@@ -49,14 +49,8 @@ namespace JobMatch
             }
         }
 
-        private void add_job_btn_Click(object sender, EventArgs e)                      //Pass row.Cells[0].Value through EventArgs
+        private void add_job_btn_Click(object sender, EventArgs e)                   
         {
-            //DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-            //row.Cells[0].Value = "IT dev";                                              //DATA FROM DATABASE
-            //row.Cells[1].Value = "Edit";
-            //row.Cells[2].Value = "Delete";
-            //dataGridView1.Rows.Add(row);
-
             Hide();
             JobRegistration jbreg = new JobRegistration(_myId);
             jbreg.ShowDialog(this);

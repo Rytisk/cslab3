@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JobMatch.Database
 {
@@ -27,6 +24,13 @@ namespace JobMatch.Database
             {
                 context.RequiredSkill.Add(obj);
                 context.SaveChanges();
+            }
+        }
+        public List<RequiredSkill> GetRequiredSkills(int job_id)
+        {
+            using(JobMatchEntities context = new JobMatchEntities())
+            {
+                return context.RequiredSkill.Where(x => x.Job_Id == job_id).ToList();
             }
         }
     }

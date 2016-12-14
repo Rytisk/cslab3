@@ -44,7 +44,7 @@ namespace JobMatch
         private void button2_Click(object sender, EventArgs e)
         {
             Hide();
-            RatedEmployees ratedEmployees = new RatedEmployees();
+            RatedEmployees ratedEmployees = new RatedEmployees(_myId);
             ratedEmployees.ShowDialog(this);
             Show();
         }

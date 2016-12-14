@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobMatch.Database;
 using System.Diagnostics;
@@ -15,12 +10,10 @@ namespace JobMatch
 {
     public partial class SelectorForm : Form
     {
-        private string _connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Acer\databse\FindJobDB.mdf;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30;Application Name=EntityFramework";
         JobSeekerSelectorView _jobSeekerControl;
         EmployerSelectorView _employerControl;
         List<JobSeeker> _jobSeekers;
         List<Job> _jobs;
-        DBHandler dbhandler = new DBHandler();
         Type _userType;
         Job _job;
         JobSeeker _jobSeeker;
@@ -72,27 +65,27 @@ namespace JobMatch
                     _jobSeekers = _jobSeekers.Skip(1).ToList();
                 }
                 _jobSeeker = _jobSeekers.Take(1).Single();
-                
+
                 _employerControl.JobSeekerName = string.Format("{0} {1}", _jobSeeker.Profile.FirstName, _jobSeeker.Profile.LastName);
                 _employerControl.ContactData = _jobSeeker.Profile.ContactData;
                 _employerControl.ShortDescription = _jobSeeker.Profile.ShortDescription;
                 _employerControl.WorkExperience = _jobSeeker.Profile.WorkExperience;
                 _employerControl.Education = _jobSeeker.Profile.Education;
 
-                string query = string.Format("select skill from skill where profile_Id = '{0}'", _jobSeeker.Profile.JobSeeker_Id);
-                var skills = dbhandler.ReadQuery(query, _connectionString);
-                foreach (DataRow row in skills.Rows)
+                SkillController skillController = new SkillController();
+                var skills = skillController.GetSkills(_jobSeeker.Profile.JobSeeker_Id);
+                foreach (Skill skill in skills)
                 {
-                    string skill = row["skill"].ToString();
-                    _employerControl.Skills.Items.Add(new ListViewItem(skill));
+                    _employerControl.Skills.Items.Add(new ListViewItem(skill.Skill1));
                 }
+
 
                 JobController jobController = new JobController();
                 var jobs = jobController.GetJobs().Where(x=> x.Employer_Id == _myId);
 
                 foreach(Job j in jobs)
                 {
-                    _employerControl.Positions.Items.Add(j);        //j.Position
+                    _employerControl.Positions.Items.Add(j); 
                 }
 
                 _jobSeekers = _jobSeekers.Skip(1).ToList();
@@ -122,12 +115,11 @@ namespace JobMatch
                 _jobSeekerControl.Education = _job.EducationRequirements;
                 _jobSeekerControl.AditionalRequirements = _job.AditionalRequirements;
 
-                string query = string.Format("select skill from RequiredSkill where job_Id = '{0}'", _job.Id);
-                var reqskills = dbhandler.ReadQuery(query, _connectionString);
-                foreach (DataRow row in reqskills.Rows)
+                RequiredSkillController reqSkillController = new RequiredSkillController();
+                var skills = reqSkillController.GetRequiredSkills(_job.Id);
+                foreach(RequiredSkill skill in skills)
                 {
-                    string skill = row["skill"].ToString();
-                    _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem(skill));
+                    _jobSeekerControl.RequiredSkills.Items.Add(new ListViewItem(skill.Skill));
                 }
 
                 _jobs = _jobs.Skip(1).ToList();

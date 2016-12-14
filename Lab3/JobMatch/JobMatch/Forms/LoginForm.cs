@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobMatch.Database;
 
@@ -29,20 +22,20 @@ namespace JobMatch
             InitializeComponent();            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            //Check The Input data with the registered data;
-
             if (radioButton1.Checked)
             {
                 type = Type.JobSeeker;
-                if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
+                if (await LoginValidation.Validate(type, username_box.Text, password_box.Text))
                 {
                     JobSeekerController jscontr = new JobSeekerController();
                     _myId = jscontr.GetIdByUsername(username_box.Text);
                     Hide();
                     JobSeekerMenu JSMenu = new JobSeekerMenu(_myId);
                     JSMenu.ShowDialog(this);
+                    username_box.Text = "";
+                    password_box.Text = "";
                     Show();
                 }
                 else
@@ -53,13 +46,15 @@ namespace JobMatch
             else if (radioButton2.Checked)
             {
                 type = Type.Employer;
-                if (LoginValidation.Validate(type, username_box.Text, password_box.Text))
+                if (await LoginValidation.Validate(type, username_box.Text, password_box.Text))
                 {
                     EmployerController empcontr = new EmployerController();
                     _myId = empcontr.GetIdByUsername(username_box.Text);
                     Hide();
                     EmployerMenu EMenu = new EmployerMenu(_myId);
                     EMenu.ShowDialog(this);
+                    username_box.Text = "";
+                    password_box.Text = "";
                     Show();
                 }
                 else
